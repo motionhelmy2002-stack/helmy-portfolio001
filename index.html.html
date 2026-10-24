@@ -6,7 +6,7 @@
 <title>Helmy Fouad — Motion Graphics & Video Editing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#F2EBE7;
@@ -46,30 +46,27 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 16px;padding:20px 0}
-.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--accent);color:var(--on-accent);font-weight:800;box-shadow:0 4px 12px rgba(207,49,71,0.3);text-decoration:none}
-nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--accent);color:var(--on-accent);font-weight:800;box-shadow:0 4px 12px rgba(207,49,71,0.3)}
+header b{font-family:"Bricolage Grotesque",sans-serif;font-size:20px;color:var(--ink)}
+nav{display:flex;gap:22px;align-items:center}
 nav a{text-decoration:none;color:var(--muted);font-weight:500;transition:color .2s}
 nav a:hover{color:var(--ink)}
-.admin-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(207,49,71,0.1);border:1px solid var(--accent);color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
-.admin-badge:hover{background:var(--accent);color:#fff}
+.admin-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;background:rgba(207,49,71,0.1);border:1px solid var(--accent);color:var(--accent);font-size:13px;font-weight:600;cursor:pointer}
 .hero{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding:56px 0 72px}
-@media(max-width:768px){ .hero{grid-template-columns:1fr;text-align:center} .hero p{margin-left:auto;margin-right:auto} .btns{justify-content:center} }
 .hero h1{font-size:clamp(48px,9vw,104px);font-weight:800;color:var(--burgundy)}
 .hero p{max-width:46ch;color:var(--muted);font-size:19px;margin:22px 0 30px}
-.btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:500;text-decoration:none;border:2px solid var(--ink);cursor:pointer;font:500 16px "DM Sans",sans-serif;background:transparent;color:var(--ink);transition:all .2s}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:500;text-decoration:none;border:2px solid var(--ink);cursor:pointer;font:500 16px "DM Sans",sans-serif;background:transparent;color:var(--ink);transition:all .2s}
 .btn.main{background:var(--accent);border-color:var(--accent);color:var(--on-accent);box-shadow:0 4px 20px rgba(207,49,71,0.35)}
 .btn.main:hover{background:var(--burgundy);border-color:var(--burgundy);transform:translateY(-2px)}
 .btn.danger{background:#d9534f;border-color:#d9534f;color:#fff;padding:4px 10px;font-size:13px;border-radius:6px}
 .stage{aspect-ratio:1;display:grid;place-items:center}
 .morph{width:64%;aspect-ratio:1;background:var(--accent);animation:morph 7s ease-in-out infinite;box-shadow:0 10px 40px rgba(207,49,71,0.25)}
 .about{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:64px;align-items:center}
-@media(max-width:768px){ .about{grid-template-columns:1fr;text-align:center} .me-container{margin:0 auto} }
-.me-container{position:relative;width:100%;max-width:320px;aspect-ratio:1;border-radius:50%;overflow:hidden;border:4px solid var(--burgundy);box-shadow:0 12px 30px rgba(89,31,40,0.35);background:#000}
+.me-container{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:4px solid var(--burgundy);box-shadow:0 12px 30px rgba(89,31,40,0.35);background:#000}
 .me{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%;transform-origin:center;transition:transform 0.1s ease}
 .about p{max-width:54ch;margin:16px 0 0;color:var(--muted)}
 .tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-@media(max-width:768px){ .tools{justify-content:center} }
 .tools span{padding:6px 14px;border-radius:999px;border:1.5px solid var(--card-border);background:var(--card);font-size:15px;color:var(--ink)}
 @keyframes morph{
 0%{border-radius:50%;transform:rotate(0);background:var(--accent)}
@@ -112,7 +109,6 @@ section h2{font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--burgundy)}
 .frame iframe,.frame video{width:100%;height:100%;border:0;display:block}
 .vid h3{font-size:22px;margin:12px 0 2px}
 .vid span{color:var(--muted);font-size:15px}
-
 .prices{margin-top:28px;max-width:760px}
 .row{display:grid;grid-template-columns:1fr auto;gap:4px 24px;align-items:center;padding:20px;border:1px solid var(--card-border);border-radius:12px;background:var(--card);margin-bottom:12px;text-decoration:none;color:inherit;transition:all .2s;box-shadow:0 2px 10px rgba(0,0,0,0.02);cursor:pointer}
 .row:hover{border-color:var(--accent);transform:translateX(4px)}
@@ -122,38 +118,25 @@ section h2{font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--burgundy)}
 .amt{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:28px;text-align:right;white-space:nowrap;line-height:1.1}
 .amt small{display:block;font:400 14px "DM Sans",sans-serif;color:var(--muted)}
 
-/* Payments Box */
-.payments-box{margin-top:24px;padding:22px;border-radius:16px;background:var(--card);border:1.5px solid var(--card-border);box-shadow:0 4px 16px rgba(0,0,0,0.02);max-width:760px}
-.payments-box h4{margin:0 0 8px 0;font-size:20px;color:var(--burgundy);font-family:"Bricolage Grotesque",sans-serif;display:flex;align-items:center;gap:8px}
-.payments-box p.note{margin:0 0 16px 0;font-size:14px;color:var(--muted)}
-.payment-methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.pay-item{padding:14px 18px;border-radius:12px;background:var(--bg);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px;position:relative;transition:all 0.2s}
-.pay-item:hover{border-color:var(--accent);background:#FAF5F2}
-.pay-item strong{font-size:15px;color:var(--burgundy)}
-.pay-action-btn{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);padding:10px 14px;border-radius:8px;border:1px solid var(--card-border);text-decoration:none;color:var(--ink);cursor:pointer;font-weight:600;font-family:monospace,"DM Sans",sans-serif;font-size:15px;transition:all 0.2s}
-.pay-action-btn:hover{border-color:var(--accent);color:var(--accent)}
-.copy-badge{font-family:"DM Sans",sans-serif;font-size:12px;padding:3px 8px;border-radius:999px;background:rgba(207,49,71,0.1);color:var(--accent);font-weight:600}
-
-/* Social Media Section */
+/* Social & Payments Boxes */
 .social-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-.social-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:var(--card);border:1.5px solid var(--card-border);color:var(--ink);text-decoration:none;font-size:15px;font-weight:500;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,0.02)}
+.social-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:var(--card);border:1px solid var(--card-border);text-decoration:none;font-size:14px;font-weight:600;color:var(--ink);transition:all .2s}
 .social-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-.social-btn svg{width:18px;height:18px;fill:currentColor}
+.contact-note{background:rgba(207,49,71,0.08);border:1px solid var(--accent);padding:16px 20px;border-radius:12px;margin-top:20px;max-width:760px}
+.contact-note p{margin:0;font-size:15px;color:var(--burgundy);font-weight:500}
 
-/* WhatsApp Banner */
-.wa-banner{margin-top:28px;padding:24px;border-radius:16px;background:linear-gradient(135deg, #25D366 0%, #128C7E 100%);color:#FFFFFF;max-width:760px;box-shadow:0 8px 24px rgba(37,211,102,0.25);display:flex;flex-direction:column;gap:12px;align-items:flex-start}
-.wa-banner h3{color:#FFFFFF;font-size:24px}
-.wa-banner p{margin:0;color:rgba(255,255,255,0.92);font-size:16px}
-.wa-btn{background:#FFFFFF;border-color:#FFFFFF;color:#128C7E;font-weight:700;padding:12px 24px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
-.wa-btn:hover{background:#F0F0F0;border-color:#F0F0F0;color:#075E54;transform:translateY(-2px)}
+.payments-box{margin-top:24px;padding:18px 22px;border-radius:14px;background:var(--card);border:1.5px solid var(--card-border);box-shadow:0 4px 16px rgba(0,0,0,0.02);max-width:760px}
+.payments-box h4{margin:0 0 12px 0;font-size:18px;color:var(--burgundy);display:flex;align-items:center;gap:8px}
+.payment-methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.pay-item{padding:12px 16px;border-radius:10px;background:var(--bg);border:1px solid var(--line);cursor:pointer;transition:border-color .2s;position:relative}
+.pay-item:hover{border-color:var(--accent)}
+.pay-item strong{display:block;font-size:15px;color:var(--ink);margin-bottom:4px}
+.pay-item span{font-family:monospace,sans-serif;font-size:16px;color:var(--accent);font-weight:700}
+.copy-badge{position:absolute;right:12px;top:12px;font-size:12px;background:var(--accent);color:#FFF;padding:2px 8px;border-radius:999px;opacity:0;transition:opacity .2s}
+.pay-item.copied .copy-badge{opacity:1}
 
+.wa-btn{margin-top:16px;background:#25D366;border-color:#25D366;color:#000;font-weight:700}
 footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
-
-/* Toast Notification */
-#toast{position:fixed;bottom:24px;right:24px;background:var(--burgundy);color:#fff;padding:12px 20px;border-radius:10px;font-size:15px;font-weight:500;box-shadow:0 8px 20px rgba(0,0,0,0.2);opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:9999}
-#toast.show{opacity:1}
-
-/* Admin Panel Styling */
 #adminPanel{background:var(--card);border:2px solid var(--accent);padding:24px;border-radius:16px;margin:32px 0;display:none}
 #adminPanel h3{margin-bottom:16px;color:var(--burgundy)}
 .form-group{margin-bottom:12px}
@@ -168,20 +151,19 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 <div class="bg" aria-hidden="true"><i></i><i></i><i></i><b></b><b></b><b></b></div>
 <div class="wrap">
 <header>
-  <a href="#home" class="logo" aria-label="Helmy Fouad">HF</a>
+  <b class="logo" aria-label="Helmy Fouad">HF</b>
   <nav aria-label="Main">
     <a href="#work">Work</a>
     <a href="#why">Why Me</a>
     <a href="#about">About</a>
-    <a href="#services">Services & Payment</a>
+    <a href="#services">Services</a>
     <a href="#contact">Contact</a>
     <button class="admin-badge" id="adminToggle">⚙️ Edit Portfolio</button>
   </nav>
 </header>
 
-<!-- Admin Panel -->
 <div id="adminPanel">
-  <h3>Add / Edit Projects & Profile</h3>
+  <h3>Add / Edit Project & Profile</h3>
   <div class="form-group"><label>Title</label><input type="text" id="pTitle" placeholder="Project Title"></div>
   <div class="form-group"><label>Category</label>
     <select id="pCat">
@@ -193,20 +175,8 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
   <div class="form-group"><label>Thumbnail Image URL (Optional)</label><input type="text" id="pThumb" placeholder="https://..."></div>
   <button class="btn main" id="saveProj">Save Project</button>
 
-  <hr style="margin:24px 0; border:0; border-top:1px solid var(--line);">
+  <hr style="margin:20px 0; border:0; border-top:1px solid var(--line);">
 
-  <h3>Social Media Accounts (حسابات التواصل)</h3>
-  <div class="controls-grid">
-    <div class="form-group"><label>TikTok URL</label><input type="text" id="sTikTok" placeholder="https://tiktok.com/@..."></div>
-    <div class="form-group"><label>Instagram URL</label><input type="text" id="sInsta" placeholder="https://instagram.com/..."></div>
-    <div class="form-group"><label>Facebook URL</label><input type="text" id="sFB" placeholder="https://facebook.com/..."></div>
-    <div class="form-group"><label>Behance / YouTube</label><input type="text" id="sOther" placeholder="https://..."></div>
-  </div>
-  <button class="btn main" id="saveSocials" style="margin-top:8px;">Save Social Links</button>
-
-  <hr style="margin:24px 0; border:0; border-top:1px solid var(--line);">
-
-  <h3>Profile Image Settings</h3>
   <div class="form-group">
     <label>Profile Picture Image URL</label>
     <input type="text" id="profilePicUrl" placeholder="https://...">
@@ -227,10 +197,18 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
     </div>
   </div>
 
-  <button class="btn" id="saveProfilePic" style="margin-top:8px;">Save Profile Picture Settings</button>
+  <button class="btn" id="saveProfilePic" style="margin-bottom:16px;">Save Profile Settings</button>
+
+  <hr style="margin:20px 0; border:0; border-top:1px solid var(--line);">
+
+  <h3>Social Media Links</h3>
+  <div class="form-group"><label>TikTok URL</label><input type="text" id="socialTikTok" placeholder="https://tiktok.com/@..."></div>
+  <div class="form-group"><label>Instagram URL</label><input type="text" id="socialInsta" placeholder="https://instagram.com/..."></div>
+  <div class="form-group"><label>Facebook URL</label><input type="text" id="socialFB" placeholder="https://facebook.com/..."></div>
+  <button class="btn" id="saveSocials">Save Social Links</button>
 
   <div class="manage-list">
-    <h4 style="margin: 0 0 12px 0; color:var(--burgundy);">Existing Projects (Manage / Delete)</h4>
+    <h4 style="margin: 0 0 12px 0;">Existing Projects (Manage / Delete)</h4>
     <div id="projectManageList"></div>
   </div>
 </div>
@@ -240,12 +218,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 <div>
 <h1>Helmy Fouad</h1>
 <p>Motion graphics designer and video editor. I turn ideas into moving pictures for brands, creators and stories.</p>
-<div class="btns">
-  <a class="btn main" href="#work">See my work</a>
-  <a class="btn" href="https://wa.me/201029069295?text=Hello%20Helmy,%20I'd%20like%20to%20discuss%20a%20project!" target="_blank" rel="noopener">📱 WhatsApp Direct</a>
-</div>
-
-<!-- Social Links Rendered in Hero -->
+<div class="btns"><a class="btn main" href="#work">See my work</a><a class="btn" href="#contact">Order a project</a></div>
 <div class="social-links" id="heroSocials"></div>
 </div>
 <div class="stage" aria-hidden="true"><div class="morph"></div></div>
@@ -321,45 +294,31 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 </a>
 </div>
 
-<!-- Payments Box with Interactive Copying -->
 <div class="payments-box">
-  <h4>💳 Payment Methods (طرق الدفع)</h4>
-  <p class="note">انقر على الرقم أو الإيميل للنسخ المباشر السريع لتسهيل عملية تحويل المستحقات:</p>
+  <h4>💳 Payment Details (وسائل الدفع - انقر للنسخ)</h4>
   <div class="payment-methods">
-    <div class="pay-item">
-      <strong>⚡ InstaPay (انستا باي)</strong>
-      <div class="pay-action-btn" onclick="copyText('01152536240', 'InstaPay phone number')">
-        <span>01152536240</span>
-        <span class="copy-badge">نسخ 📋</span>
-      </div>
+    <div class="pay-item" id="payInsta" onclick="copyPay('01152536240', 'payInsta')">
+      <strong>InstaPay (انستا باي)</strong>
+      <span>01152536240</span>
+      <span class="copy-badge">Copied!</span>
     </div>
-    <div class="pay-item">
-      <strong>🌐 PayPal (بايبال)</strong>
-      <div class="pay-action-btn" onclick="copyText('motionhelmy2002@gmail.com', 'PayPal email address')">
-        <span style="font-size:13px;">motionhelmy2002@gmail.com</span>
-        <span class="copy-badge">نسخ 📋</span>
-      </div>
+    <div class="pay-item" id="payPal" onclick="copyPay('motionhelmy2002@gmail.com', 'payPal')">
+      <strong>PayPal (بايبال)</strong>
+      <span>motionhelmy2002@gmail.com</span>
+      <span class="copy-badge">Copied!</span>
     </div>
   </div>
 </div>
 </section>
 
 <section id="contact">
-<h2>Direct Contact & Socials</h2>
-<p class="sub">طريقة التواصل الأساسية والمباشرة للاتفاق على المشاريع هي عبر الواتساب:</p>
-
-<div class="wa-banner">
-  <h3>تواصل معي مباشرة على الواتساب 💬</h3>
-  <p>اضغط على الزر أدناه لتحويلك تلقائياً للدردشة والمناقشة حول تفاصيل مشروعك القادم.</p>
-  <a class="btn wa-btn" href="https://wa.me/201029069295?text=مرحباً%20حلمي،%20أريد%20الاستفسار%20عن%20مشروع%20جديد" target="_blank" rel="noopener">
-    💬 فتح المحادثة (01029069295)
-  </a>
+<h2>Order on WhatsApp</h2>
+<p class="sub">Primary communication and order discussions happen via WhatsApp for fast responses and file sharing.</p>
+<div class="contact-note">
+  <p>📱 <strong>طريقة التواصل الأساسية:</strong> يرجى التواصل المباشر عبر الواتساب على الرقم <strong>01029069295</strong> لمناقشة التفاصيل وبدء المشروع.</p>
 </div>
-
-<div style="margin-top:36px;">
-  <h3 style="font-size:20px;color:var(--burgundy);">تابعني على منصات التواصل (Social Media)</h3>
-  <div class="social-links" id="contactSocials"></div>
-</div>
+<a class="btn wa-btn wa" href="https://wa.me/201029069295" target="_blank" rel="noopener">Chat on WhatsApp (01029069295)</a>
+<div class="social-links" id="contactSocials" style="margin-top:24px;"></div>
 </section>
 </div>
 
@@ -369,10 +328,8 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 <div class="vgrid" id="vids"></div>
 </div>
 
-<footer>&copy; 2026 Helmy Fouad — Motion Graphics & Video Editing</footer>
+<footer>&copy; 2026 Helmy Fouad</footer>
 </div>
-
-<div id="toast">Copied to clipboard!</div>
 
 <script>
 var PHONE = "01029069295";
@@ -386,64 +343,45 @@ var DEFAULT_WORKS = [
  {title:"مونتاج ريلز 7", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/1jPzewVT7r8C60ILmWLdqxApJajZimesT/view?usp=drive_link", thumb:""}
 ];
 
-var DEFAULT_SOCIALS = {
-  tiktok: "https://www.tiktok.com",
-  instagram: "https://www.instagram.com",
-  facebook: "https://www.facebook.com",
-  other: ""
-};
-
 var WORKS = JSON.parse(localStorage.getItem("helmy_works")) || DEFAULT_WORKS;
-var SOCIALS = JSON.parse(localStorage.getItem("helmy_socials")) || DEFAULT_SOCIALS;
 var CATS={reels:"اعمال الريلز المونتاج",motion:"اعمال موشن جرافيك"};
 var reel=document.getElementById("reel"),chips=document.getElementById("chips"),cur="All";
 
-// Copying helper with fallback
-function copyText(text, label) {
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(function() {
-      showToast("تم نسخ " + label + " بنجاح! 🎉");
-    });
-  } else {
-    var input = document.createElement("input");
-    input.value = text;
-    document.body.appendChild(input);
-    input.select();
-    try {
-      document.execCommand('copy');
-      showToast("تم نسخ " + label + " بنجاح! 🎉");
-    } catch (err) {
-      alert("الرقم هو: " + text);
-    }
-    document.body.removeChild(input);
-  }
+// Copy Payment Details Function
+function copyPay(text, elementId){
+  navigator.clipboard.writeText(text).then(function(){
+    var el = document.getElementById(elementId);
+    el.classList.add("copied");
+    setTimeout(function(){ el.classList.remove("copied"); }, 2000);
+  });
 }
 
-function showToast(msg) {
-  var t = document.getElementById("toast");
-  t.textContent = msg;
-  t.classList.add("show");
-  setTimeout(function() { t.classList.remove("show"); }, 3000);
-}
-
-// Render Social Links
-function renderSocials() {
-  var icons = {
-    tiktok: '<svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-1.42V8.91a6.35 6.35 0 0 0-1 .08 6.34 6.34 0 1 0 6.34 6.34V9.25a8.16 8.16 0 0 0 4.77 1.52A8.18 8.18 0 0 0 22 10.45V7a4.86 4.86 0 0 1-2.41-.31z"/></svg>',
-    instagram: '<svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>',
-    facebook: '<svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
-    other: '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>'
-  };
-
-  var html = '';
-  if (SOCIALS.tiktok) html += '<a class="social-btn" href="'+esc(SOCIALS.tiktok)+'" target="_blank" rel="noopener">'+icons.tiktok+' TikTok</a>';
-  if (SOCIALS.instagram) html += '<a class="social-btn" href="'+esc(SOCIALS.instagram)+'" target="_blank" rel="noopener">'+icons.instagram+' Instagram</a>';
-  if (SOCIALS.facebook) html += '<a class="social-btn" href="'+esc(SOCIALS.facebook)+'" target="_blank" rel="noopener">'+icons.facebook+' Facebook</a>';
-  if (SOCIALS.other) html += '<a class="social-btn" href="'+esc(SOCIALS.other)+'" target="_blank" rel="noopener">'+icons.other+' YouTube / Portfolio</a>';
-
+// Social Media Links Logic
+function loadSocials(){
+  var tt = localStorage.getItem("helmy_social_tt") || "";
+  var ig = localStorage.getItem("helmy_social_ig") || "";
+  var fb = localStorage.getItem("helmy_social_fb") || "";
+  
+  document.getElementById("socialTikTok").value = tt;
+  document.getElementById("socialInsta").value = ig;
+  document.getElementById("socialFB").value = fb;
+  
+  var html = "";
+  if(tt) html += '<a class="social-btn" href="'+esc(tt)+'" target="_blank">🎵 TikTok</a>';
+  if(ig) html += '<a class="social-btn" href="'+esc(ig)+'" target="_blank">📸 Instagram</a>';
+  if(fb) html += '<a class="social-btn" href="'+esc(fb)+'" target="_blank">📘 Facebook</a>';
+  
   document.getElementById("heroSocials").innerHTML = html;
-  document.getElementById("contactSocials").innerHTML = html || '<p style="color:var(--muted)">لا توجد حسابات مضافة حالياً.</p>';
+  document.getElementById("contactSocials").innerHTML = html;
 }
+
+document.getElementById("saveSocials").onclick = function(){
+  localStorage.setItem("helmy_social_tt", document.getElementById("socialTikTok").value);
+  localStorage.setItem("helmy_social_ig", document.getElementById("socialInsta").value);
+  localStorage.setItem("helmy_social_fb", document.getElementById("socialFB").value);
+  loadSocials();
+  alert("Social links updated!");
+};
 
 // Image Adjustment Controls
 var meImg = document.getElementById("me");
@@ -482,6 +420,7 @@ scaleInput.value = savedScale;
 posXInput.value = savedX;
 posYInput.value = savedY;
 updateImgTransform();
+loadSocials();
 
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function slug(c){for(var k in CATS)if(CATS[k]===c)return k;return "motion"}
@@ -552,13 +491,7 @@ document.getElementById("next").onclick=function(){reel.scrollBy({left:440,behav
 document.getElementById("adminToggle").onclick=function(){
   var p=document.getElementById("adminPanel");
   p.style.display=p.style.display==="block"?"none":"block";
-  if(p.style.display==="block") {
-    renderManageList();
-    document.getElementById("sTikTok").value = SOCIALS.tiktok || "";
-    document.getElementById("sInsta").value = SOCIALS.instagram || "";
-    document.getElementById("sFB").value = SOCIALS.facebook || "";
-    document.getElementById("sOther").value = SOCIALS.other || "";
-  }
+  if(p.style.display==="block") renderManageList();
 };
 
 document.getElementById("saveProj").onclick=function(){
@@ -575,16 +508,6 @@ document.getElementById("saveProj").onclick=function(){
   document.getElementById("pTitle").value="";
   document.getElementById("pVid").value="";
   document.getElementById("pThumb").value="";
-};
-
-document.getElementById("saveSocials").onclick=function(){
-  SOCIALS.tiktok = document.getElementById("sTikTok").value.trim();
-  SOCIALS.instagram = document.getElementById("sInsta").value.trim();
-  SOCIALS.facebook = document.getElementById("sFB").value.trim();
-  SOCIALS.other = document.getElementById("sOther").value.trim();
-  localStorage.setItem("helmy_socials", JSON.stringify(SOCIALS));
-  renderSocials();
-  alert("تم حفظ حسابات التواصل بنجاح!");
 };
 
 document.getElementById("saveProfilePic").onclick=function(){
@@ -618,7 +541,6 @@ function route(){
 window.addEventListener("hashchange",route);
 
 draw();
-renderSocials();
 route();
 </script>
 </body>
