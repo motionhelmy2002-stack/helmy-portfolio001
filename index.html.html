@@ -18,26 +18,12 @@
   --card-border:#E2D6D0;
   --line:#DBD0C9;
   --on-accent:#FFFFFF;
-  --b1:#CF3147;
-  --b2:#591F28;
-  --b3:#262626;
-  --bo:.18;
   color-scheme:light;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px)
 }
-.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.bg i{position:absolute;border-radius:50%;filter:blur(100px);opacity:var(--bo);will-change:transform;animation:drift 24s ease-in-out infinite alternate}
-.bg i:nth-child(1){width:48vmax;height:48vmax;left:-12vmax;top:-14vmax;background:var(--b1)}
-.bg i:nth-child(2){width:40vmax;height:40vmax;right:-10vmax;top:18vh;background:var(--b2);animation-duration:30s;animation-delay:-8s}
-.bg i:nth-child(3){width:44vmax;height:44vmax;left:28vw;bottom:-22vmax;background:var(--b3);animation-duration:36s;animation-delay:-14s}
-.bg b{position:absolute;border:2px solid var(--accent);opacity:.2;animation:float 16s ease-in-out infinite alternate}
-.bg b:nth-of-type(1){width:72px;height:72px;border-radius:50%;left:7%;top:64%}
-.bg b:nth-of-type(2){width:54px;height:54px;border-radius:10px;right:11%;top:34%;border-color:var(--burgundy);animation-duration:20s}
-.bg b:nth-of-type(3){width:110px;height:110px;border-radius:50%;right:24%;bottom:8%;border-color:var(--accent);animation-duration:24s}
-@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(9vw,7vh) scale(1.15)}100%{transform:translate(-7vw,13vh) scale(.95)}}
-@keyframes float{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(-48px) rotate(160deg)}}
+#particles-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif}
@@ -46,8 +32,9 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 16px;padding:20px 0}
-.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--accent);color:var(--on-accent);font-weight:800;box-shadow:0 4px 12px rgba(207,49,71,0.3)}
-header b{font-family:"Bricolage Grotesque",sans-serif;font-size:20px;color:var(--ink)}
+.brand-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--burgundy);box-shadow:0 2px 8px rgba(89,31,40,0.25)}
+.brand-title{font-family:"Bricolage Grotesque",sans-serif;font-size:22px;font-weight:800;color:var(--burgundy);letter-spacing:-0.02em}
 nav{display:flex;gap:22px;align-items:center}
 nav a{text-decoration:none;color:var(--muted);font-weight:500;transition:color .2s}
 nav a:hover{color:var(--ink)}
@@ -62,7 +49,7 @@ nav a:hover{color:var(--ink)}
 .morph{width:64%;aspect-ratio:1;background:var(--accent);animation:morph 7s ease-in-out infinite;box-shadow:0 10px 40px rgba(207,49,71,0.25)}
 .about{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:64px;align-items:center}
 .me-container{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:4px solid var(--burgundy);box-shadow:0 12px 30px rgba(89,31,40,0.35);background:#000}
-.me{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;border-radius:50%;transform-origin:center;transform:scale(1.0);}
+.me{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;border-radius:50%;transform:scale(1.0)}
 .about p{max-width:54ch;margin:16px 0 0;color:var(--muted)}
 .tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .tools span{padding:6px 14px;border-radius:999px;border:1.5px solid var(--card-border);background:var(--card);font-size:15px;color:var(--ink)}
@@ -75,7 +62,6 @@ section{padding:64px 0;border-top:1px solid var(--line)}
 section h2{font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--burgundy)}
 .sub{color:var(--muted);max-width:56ch;margin:12px 0 0}
 
-/* Why Work With Me Styles */
 .reasons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:36px}
 .reason-card{background:var(--card);border:1px solid var(--card-border);padding:28px 22px;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,0.02);transition:transform .2s, border-color .2s}
 .reason-card:hover{transform:translateY(-4px);border-color:var(--accent)}
@@ -116,7 +102,6 @@ section h2{font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--burgundy)}
 .amt{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:28px;text-align:right;white-space:nowrap;line-height:1.1}
 .amt small{display:block;font:400 14px "DM Sans",sans-serif;color:var(--muted)}
 
-/* Social & Payments Boxes */
 .social-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
 .social-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:var(--card);border:1px solid var(--card-border);text-decoration:none;font-size:14px;font-weight:600;color:var(--ink);transition:all .2s}
 .social-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
@@ -138,10 +123,13 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 </style>
 </head>
 <body>
-<div class="bg" aria-hidden="true"><i></i><i></i><i></i><b></b><b></b><b></b></div>
+<canvas id="particles-canvas"></canvas>
 <div class="wrap">
 <header>
-  <b class="logo" aria-label="Helmy Fouad">HF</b>
+  <a class="brand-logo" href="#home" aria-label="motionhelmy">
+    <img class="logo-img" src="https://drive.google.com/thumbnail?id=1lzsFH8YqnmPW7yqSTAnQ3XSJj5eF754E&sz=w1000" alt="Helmy Fouad">
+    <span class="brand-title">motionhelmy</span>
+  </a>
   <nav aria-label="Main">
     <a href="#work">Work</a>
     <a href="#why">Why Me</a>
@@ -270,6 +258,116 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 </div>
 
 <script>
+// Particles Background & Click Burst System
+(function(){
+  var canvas = document.getElementById("particles-canvas");
+  var ctx = canvas.getContext("2d");
+  var particles = [];
+  var bursts = [];
+  var particleCount = 45;
+  var colors = ["#CF3147", "#591F28", "#262626"];
+
+  function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  for(var i = 0; i < particleCount; i++){
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.8,
+      vy: (Math.random() - 0.5) * 0.8,
+      radius: Math.random() * 2.5 + 1,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      alpha: Math.random() * 0.4 + 0.2
+    });
+  }
+
+  function createBurst(x, y){
+    for(var i = 0; i < 20; i++){
+      var angle = Math.random() * Math.PI * 2;
+      var speed = Math.random() * 4 + 1.5;
+      bursts.push({
+        x: x,
+        y: y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        radius: Math.random() * 3 + 1.5,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        life: 1.0,
+        decay: Math.random() * 0.03 + 0.02
+      });
+    }
+  }
+
+  window.addEventListener("click", function(e){
+    createBurst(e.clientX, e.clientY);
+  });
+
+  function animate(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for(var i = 0; i < particles.length; i++){
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if(p.x < 0) p.x = canvas.width;
+      if(p.x > canvas.width) p.x = 0;
+      if(p.y < 0) p.y = canvas.height;
+      if(p.y > canvas.height) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
+      ctx.fill();
+
+      for(var j = i + 1; j < particles.length; j++){
+        var p2 = particles[j];
+        var dx = p.x - p2.x;
+        var dy = p.y - p2.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if(dist < 110){
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = p.color;
+          ctx.globalAlpha = (1 - dist / 110) * 0.15;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+
+    for(var k = bursts.length - 1; k >= 0; k--){
+      var b = bursts[k];
+      b.x += b.vx;
+      b.y += b.vy;
+      b.life -= b.decay;
+
+      if(b.life <= 0){
+        bursts.splice(k, 1);
+        continue;
+      }
+
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+      ctx.fillStyle = b.color;
+      ctx.globalAlpha = b.life;
+      ctx.fill();
+    }
+
+    ctx.globalAlpha = 1.0;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+})();
+
 var PHONE = "01029069295";
 var WORKS = [
  {title:"مونتاج ريلز 1", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/16nJ-G46KtpIh5ZmRPzsWocMZygNRxqPr/view?usp=drive_link", thumb:""},
@@ -287,7 +385,6 @@ var WORKS = [
 var CATS = {reels:"اعمال الريلز المونتاج", motion:"اعمال موشن جرافيك"};
 var reel = document.getElementById("reel"), chips = document.getElementById("chips"), cur = "All";
 
-// Copy Payment Details Function
 function copyPay(text, elementId){
   navigator.clipboard.writeText(text).then(function(){
     var el = document.getElementById(elementId);
