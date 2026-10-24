@@ -64,7 +64,7 @@ nav a:hover{color:var(--ink)}
 .morph{width:64%;aspect-ratio:1;background:var(--accent);animation:morph 7s ease-in-out infinite;box-shadow:0 10px 40px rgba(207,49,71,0.25)}
 .about{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:64px;align-items:center}
 .me-container{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:4px solid var(--burgundy);box-shadow:0 12px 30px rgba(89,31,40,0.35);background:#000}
-.me{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%;transform-origin:center;transition:transform 0.1s ease}
+.me{display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%;border-radius:50%;transform-origin:center;transition:transform 0.1s ease;transform:scale(1.15)}
 .about p{max-width:54ch;margin:16px 0 0;color:var(--muted)}
 .tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .tools span{padding:6px 14px;border-radius:999px;border:1.5px solid var(--card-border);background:var(--card);font-size:15px;color:var(--ink)}
@@ -408,7 +408,7 @@ posYInput.addEventListener("input", updateImgTransform);
 
 // Load Saved Profile Settings
 var savedProfilePic = localStorage.getItem("helmy_profile_pic");
-var savedScale = localStorage.getItem("helmy_img_scale") || "1.25";
+var savedScale = localStorage.getItem("helmy_img_scale") || "1.15";
 var savedX = localStorage.getItem("helmy_img_x") || "0";
 var savedY = localStorage.getItem("helmy_img_y") || "0";
 
@@ -485,13 +485,13 @@ chips.innerHTML=cats.map(function(c){return '<button class="chip" aria-pressed="
 chips.addEventListener("click",function(e){var b=e.target.closest(".chip");if(!b)return;cur=b.getAttribute("data-c");
  [].forEach.call(chips.children,function(x){x.setAttribute("aria-pressed",x===b)});draw()});
 
-document.getElementById("prev").onclick=function(){reel.scrollBy({left:-440,behavior:"smooth"})};
+document.getElementById("prev").onclick=function({reel.scrollBy({left:-440,behavior:"smooth"})};
 document.getElementById("next").onclick=function(){reel.scrollBy({left:440,behavior:"smooth"})};
 
 document.getElementById("adminToggle").onclick=function(){
   var p=document.getElementById("adminPanel");
   p.style.display=p.style.display==="block"?"none":"block";
-  if(p.style.display==="block") renderManageList();
+  if(p.style.display===block) renderManageList();
 };
 
 document.getElementById("saveProj").onclick=function(){
