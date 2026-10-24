@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Helmy Fouad — Motion Graphics & Video Editing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2EBE7;
+  --ink:#262626;
+  --muted:#61585B;
+  --accent:#CF3147;
+  --burgundy:#591F28;
+  --card:#FFFFFF;
+  --card-border:#E2D6D0;
+  --line:#DBD0C9;
+  --on-accent:#FFFFFF;
+  --b1:#CF3147;
+  --b2:#591F28;
+  --b3:#262626;
+  --bo:.18;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px)
+}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg i{position:absolute;border-radius:50%;filter:blur(100px);opacity:var(--bo);will-change:transform;animation:drift 24s ease-in-out infinite alternate}
+.bg i:nth-child(1){width:48vmax;height:48vmax;left:-12vmax;top:-14vmax;background:var(--b1)}
+.bg i:nth-child(2){width:40vmax;height:40vmax;right:-10vmax;top:18vh;background:var(--b2);animation-duration:30s;animation-delay:-8s}
+.bg i:nth-child(3){width:44vmax;height:44vmax;left:28vw;bottom:-22vmax;background:var(--b3);animation-duration:36s;animation-delay:-14s}
+.bg b{position:absolute;border:2px solid var(--accent);opacity:.2;animation:float 16s ease-in-out infinite alternate}
+.bg b:nth-of-type(1){width:72px;height:72px;border-radius:50%;left:7%;top:64%}
+.bg b:nth-of-type(2){width:54px;height:54px;border-radius:10px;right:11%;top:34%;border-color:var(--burgundy);animation-duration:20s}
+.bg b:nth-of-type(3){width:110px;height:110px;border-radius:50%;right:24%;bottom:8%;border-color:var(--accent);animation-duration:24s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(9vw,7vh) scale(1.15)}100%{transform:translate(-7vw,13vh) scale(.95)}}
+@keyframes float{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(-48px) rotate(160deg)}}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3,h4{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;margin:0;line-height:1.05;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 16px;padding:20px 0}
+.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--accent);color:var(--on-accent);font-weight:800;box-shadow:0 4px 12px rgba(207,49,71,0.3);text-decoration:none}
+nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;transition:color .2s}
+nav a:hover{color:var(--ink)}
+.admin-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(207,49,71,0.1);border:1px solid var(--accent);color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.admin-badge:hover{background:var(--accent);color:#fff}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding:56px 0 72px}
+@media(max-width:768px){ .hero{grid-template-columns:1fr;text-align:center} .hero p{margin-left:auto;margin-right:auto} .btns{justify-content:center} }
+.hero h1{font-size:clamp(48px,9vw,104px);font-weight:800;color:var(--burgundy)}
+.hero p{max-width:46ch;color:var(--muted);font-size:19px;margin:22px 0 30px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:500;text-decoration:none;border:2px solid var(--ink);cursor:pointer;font:500 16px "DM Sans",sans-serif;background:transparent;color:var(--ink);transition:all .2s}
+.btn.main{background:var(--accent);border-color:var(--accent);color:var(--on-accent);box-shadow:0 4px 20px rgba(207,49,71,0.35)}
+.btn.main:hover{background:var(--burgundy);border-color:var(--burgundy);transform:translateY(-2px)}
+.btn.danger{background:#d9534f;border-color:#d9534f;color:#fff;padding:4px 10px;font-size:13px;border-radius:6px}
+.stage{aspect-ratio:1;display:grid;place-items:center}
+.morph{width:64%;aspect-ratio:1;background:var(--accent);animation:morph 7s ease-in-out infinite;box-shadow:0 10px 40px rgba(207,49,71,0.25)}
+.about{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:64px;align-items:center}
+@media(max-width:768px){ .about{grid-template-columns:1fr;text-align:center} .me-container{margin:0 auto} }
+.me-container{position:relative;width:100%;max-width:320px;aspect-ratio:1;border-radius:50%;overflow:hidden;border:4px solid var(--burgundy);box-shadow:0 12px 30px rgba(89,31,40,0.35);background:#000}
+.me{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%;transform-origin:center;transition:transform 0.1s ease}
+.about p{max-width:54ch;margin:16px 0 0;color:var(--muted)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+@media(max-width:768px){ .tools{justify-content:center} }
+.tools span{padding:6px 14px;border-radius:999px;border:1.5px solid var(--card-border);background:var(--card);font-size:15px;color:var(--ink)}
+@keyframes morph{
+0%{border-radius:50%;transform:rotate(0);background:var(--accent)}
+33%{border-radius:12%;transform:rotate(90deg);background:var(--burgundy)}
+66%{border-radius:50% 50% 12% 12%;transform:rotate(180deg);background:var(--ink)}
+100%{border-radius:50%;transform:rotate(360deg);background:var(--accent)}}
+section{padding:64px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--burgundy)}
+.sub{color:var(--muted);max-width:56ch;margin:12px 0 0}
+
+/* Why Work With Me Styles */
+.reasons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:36px}
+.reason-card{background:var(--card);border:1px solid var(--card-border);padding:28px 22px;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,0.02);transition:transform .2s, border-color .2s}
+.reason-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.reason-icon{font-size:32px;margin-bottom:12px;display:inline-block}
+.reason-card h3{font-size:20px;color:var(--burgundy);margin-bottom:8px}
+.reason-card p{font-size:15px;color:var(--muted);margin:0;line-height:1.5}
+
+.bar{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.chip{padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:500 15px "DM Sans",sans-serif;cursor:pointer;transition:all .2s}
+.chip[aria-pressed="true"]{background:var(--burgundy);color:var(--on-accent);border-color:var(--burgundy)}
+.arrows{display:flex;gap:8px}
+.arrows button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font-size:20px;cursor:pointer;transition:all .2s}
+.arrows button:hover{background:var(--accent);color:#FFF;border-color:var(--accent)}
+.reel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 24px 20px;margin:0 -24px;scrollbar-width:thin}
+.work{flex:0 0 min(420px,82%);scroll-snap-align:start;text-decoration:none;display:block;background:var(--card);padding:16px;border-radius:16px;border:1px solid var(--card-border);box-shadow:0 4px 16px rgba(0,0,0,0.03);transition:transform .2s}
+.work:hover{transform:translateY(-4px);border-color:var(--accent)}
+.thumb{aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:10px;background:linear-gradient(135deg, var(--burgundy), var(--ink));display:grid;place-items:center}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb-placeholder{color:rgba(255,255,255,0.8);font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:18px;text-align:center;padding:0 16px}
+.play{position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:#FFF;font-size:14px;box-shadow:0 4px 12px rgba(207,49,71,0.4)}
+.work h3{font-size:22px;margin:14px 0 2px;color:var(--ink)}
+.work span{color:var(--muted);font-size:15px}
+.empty{color:var(--muted);padding:24px 0}
+.back{display:inline-block;margin:32px 0 20px;font-weight:500;text-decoration:none;color:var(--accent)}
+#gallery h2{font-size:clamp(36px,6vw,64px);font-weight:800;color:var(--burgundy)}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:32px 24px;margin:32px 0 48px}
+.frame{aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000;border:1px solid var(--card-border)}
+.frame iframe,.frame video{width:100%;height:100%;border:0;display:block}
+.vid h3{font-size:22px;margin:12px 0 2px}
+.vid span{color:var(--muted);font-size:15px}
+
+.prices{margin-top:28px;max-width:760px}
+.row{display:grid;grid-template-columns:1fr auto;gap:4px 24px;align-items:center;padding:20px;border:1px solid var(--card-border);border-radius:12px;background:var(--card);margin-bottom:12px;text-decoration:none;color:inherit;transition:all .2s;box-shadow:0 2px 10px rgba(0,0,0,0.02);cursor:pointer}
+.row:hover{border-color:var(--accent);transform:translateX(4px)}
+.row h3{font-size:22px;color:var(--burgundy)}
+.row p{grid-column:1;margin:4px 0 0;color:var(--muted);font-size:15px}
+.row .amt{grid-column:2;grid-row:1 / span 2;color:var(--accent)}
+.amt{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:28px;text-align:right;white-space:nowrap;line-height:1.1}
+.amt small{display:block;font:400 14px "DM Sans",sans-serif;color:var(--muted)}
+
+/* Payments Box */
+.payments-box{margin-top:24px;padding:22px;border-radius:16px;background:var(--card);border:1.5px solid var(--card-border);box-shadow:0 4px 16px rgba(0,0,0,0.02);max-width:760px}
+.payments-box h4{margin:0 0 8px 0;font-size:20px;color:var(--burgundy);font-family:"Bricolage Grotesque",sans-serif;display:flex;align-items:center;gap:8px}
+.payments-box p.note{margin:0 0 16px 0;font-size:14px;color:var(--muted)}
+.payment-methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.pay-item{padding:14px 18px;border-radius:12px;background:var(--bg);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px;position:relative;transition:all 0.2s}
+.pay-item:hover{border-color:var(--accent);background:#FAF5F2}
+.pay-item strong{font-size:15px;color:var(--burgundy)}
+.pay-action-btn{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);padding:10px 14px;border-radius:8px;border:1px solid var(--card-border);text-decoration:none;color:var(--ink);cursor:pointer;font-weight:600;font-family:monospace,"DM Sans",sans-serif;font-size:15px;transition:all 0.2s}
+.pay-action-btn:hover{border-color:var(--accent);color:var(--accent)}
+.copy-badge{font-family:"DM Sans",sans-serif;font-size:12px;padding:3px 8px;border-radius:999px;background:rgba(207,49,71,0.1);color:var(--accent);font-weight:600}
+
+/* Social Media Section */
+.social-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.social-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:var(--card);border:1.5px solid var(--card-border);color:var(--ink);text-decoration:none;font-size:15px;font-weight:500;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,0.02)}
+.social-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.social-btn svg{width:18px;height:18px;fill:currentColor}
+
+/* WhatsApp Banner */
+.wa-banner{margin-top:28px;padding:24px;border-radius:16px;background:linear-gradient(135deg, #25D366 0%, #128C7E 100%);color:#FFFFFF;max-width:760px;box-shadow:0 8px 24px rgba(37,211,102,0.25);display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.wa-banner h3{color:#FFFFFF;font-size:24px}
+.wa-banner p{margin:0;color:rgba(255,255,255,0.92);font-size:16px}
+.wa-btn{background:#FFFFFF;border-color:#FFFFFF;color:#128C7E;font-weight:700;padding:12px 24px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+.wa-btn:hover{background:#F0F0F0;border-color:#F0F0F0;color:#075E54;transform:translateY(-2px)}
+
+footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
+
+/* Toast Notification */
+#toast{position:fixed;bottom:24px;right:24px;background:var(--burgundy);color:#fff;padding:12px 20px;border-radius:10px;font-size:15px;font-weight:500;box-shadow:0 8px 20px rgba(0,0,0,0.2);opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:9999}
+#toast.show{opacity:1}
+
+/* Admin Panel Styling */
+#adminPanel{background:var(--card);border:2px solid var(--accent);padding:24px;border-radius:16px;margin:32px 0;display:none}
+#adminPanel h3{margin-bottom:16px;color:var(--burgundy)}
+.form-group{margin-bottom:12px}
+.form-group label{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+.form-group input, .form-group select{width:100%;padding:10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-family:inherit}
+.controls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:8px}
+.manage-list{margin-top:20px;border-top:1px solid var(--line);padding-top:16px}
+.manage-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i><b></b><b></b><b></b></div>
+<div class="wrap">
+<header>
+  <a href="#home" class="logo" aria-label="Helmy Fouad">HF</a>
+  <nav aria-label="Main">
+    <a href="#work">Work</a>
+    <a href="#why">Why Me</a>
+    <a href="#about">About</a>
+    <a href="#services">Services & Payment</a>
+    <a href="#contact">Contact</a>
+    <button class="admin-badge" id="adminToggle">⚙️ Edit Portfolio</button>
+  </nav>
+</header>
+
+<!-- Admin Panel -->
+<div id="adminPanel">
+  <h3>Add / Edit Projects & Profile</h3>
+  <div class="form-group"><label>Title</label><input type="text" id="pTitle" placeholder="Project Title"></div>
+  <div class="form-group"><label>Category</label>
+    <select id="pCat">
+      <option value="اعمال الريلز المونتاج">اعمال الريلز المونتاج</option>
+      <option value="اعمال موشن جرافيك">اعمال موشن جرافيك</option>
+    </select>
+  </div>
+  <div class="form-group"><label>Video URL (YouTube/Vimeo/Drive)</label><input type="text" id="pVid" placeholder="https://..."></div>
+  <div class="form-group"><label>Thumbnail Image URL (Optional)</label><input type="text" id="pThumb" placeholder="https://..."></div>
+  <button class="btn main" id="saveProj">Save Project</button>
+
+  <hr style="margin:24px 0; border:0; border-top:1px solid var(--line);">
+
+  <h3>Social Media Accounts (حسابات التواصل)</h3>
+  <div class="controls-grid">
+    <div class="form-group"><label>TikTok URL</label><input type="text" id="sTikTok" placeholder="https://tiktok.com/@..."></div>
+    <div class="form-group"><label>Instagram URL</label><input type="text" id="sInsta" placeholder="https://instagram.com/..."></div>
+    <div class="form-group"><label>Facebook URL</label><input type="text" id="sFB" placeholder="https://facebook.com/..."></div>
+    <div class="form-group"><label>Behance / YouTube</label><input type="text" id="sOther" placeholder="https://..."></div>
+  </div>
+  <button class="btn main" id="saveSocials" style="margin-top:8px;">Save Social Links</button>
+
+  <hr style="margin:24px 0; border:0; border-top:1px solid var(--line);">
+
+  <h3>Profile Image Settings</h3>
+  <div class="form-group">
+    <label>Profile Picture Image URL</label>
+    <input type="text" id="profilePicUrl" placeholder="https://...">
+  </div>
+
+  <div class="controls-grid">
+    <div class="form-group">
+      <label>Zoom Image (Scale: <span id="scaleVal">1.25</span>x)</label>
+      <input type="range" id="imgScale" min="0.8" max="3" step="0.05" value="1.25">
+    </div>
+    <div class="form-group">
+      <label>Position X (<span id="posXVal">0</span>px)</label>
+      <input type="range" id="imgPosX" min="-100" max="100" step="1" value="0">
+    </div>
+    <div class="form-group">
+      <label>Position Y (<span id="posYVal">0</span>px)</label>
+      <input type="range" id="imgPosY" min="-100" max="100" step="1" value="0">
+    </div>
+  </div>
+
+  <button class="btn" id="saveProfilePic" style="margin-top:8px;">Save Profile Picture Settings</button>
+
+  <div class="manage-list">
+    <h4 style="margin: 0 0 12px 0; color:var(--burgundy);">Existing Projects (Manage / Delete)</h4>
+    <div id="projectManageList"></div>
+  </div>
+</div>
+
+<div id="home">
+<div class="hero">
+<div>
+<h1>Helmy Fouad</h1>
+<p>Motion graphics designer and video editor. I turn ideas into moving pictures for brands, creators and stories.</p>
+<div class="btns">
+  <a class="btn main" href="#work">See my work</a>
+  <a class="btn" href="https://wa.me/201029069295?text=Hello%20Helmy,%20I'd%20like%20to%20discuss%20a%20project!" target="_blank" rel="noopener">📱 WhatsApp Direct</a>
+</div>
+
+<!-- Social Links Rendered in Hero -->
+<div class="social-links" id="heroSocials"></div>
+</div>
+<div class="stage" aria-hidden="true"><div class="morph"></div></div>
+</div>
+
+<section id="work">
+<div class="bar">
+<div><h2>Selected work</h2><p class="sub">Scroll sideways or use the arrows. Select a project to see all videos in its category.</p>
+<div class="chips" id="chips" role="group" aria-label="Filter by type"></div></div>
+<div class="arrows"><button id="prev" aria-label="Previous">&#8592;</button><button id="next" aria-label="Next">&#8594;</button></div>
+</div>
+<div class="reel" id="reel" tabindex="0" aria-label="Work reel"></div>
+</section>
+
+<section id="why">
+<h2>Why Work With Me?</h2>
+<p class="sub">I don't just edit videos; I craft visual experiences that capture attention and drive results.</p>
+<div class="reasons-grid">
+  <div class="reason-card">
+    <span class="reason-icon">🎬</span>
+    <h3>Visual Storytelling</h3>
+    <p>Turning raw video footage and ideas into structured, engaging stories that hook viewers from the very first second.</p>
+  </div>
+  <div class="reason-card">
+    <span class="reason-icon">📈</span>
+    <h3>High Retention Editing</h3>
+    <p>Using dynamic pacing, sound design, motion graphics, and clean cuts to keep your audience watching until the end.</p>
+  </div>
+  <div class="reason-card">
+    <span class="reason-icon">✨</span>
+    <h3>Custom Motion Graphics</h3>
+    <p>From animated logos to 2D character rigging and UI animations, adding premium visual polish that builds brand trust.</p>
+  </div>
+  <div class="reason-card">
+    <span class="reason-icon">🚀</span>
+    <h3>Fast & Reliable Delivery</h3>
+    <p>Clear communication, structured feedback, and strict adherence to project deadlines every single time.</p>
+  </div>
+</div>
+</section>
+
+<section id="about">
+<div class="about">
+<div class="me-container">
+  <img class="me" id="me" alt="Helmy Fouad" src="https://drive.google.com/thumbnail?id=1Qxv0eUkYDG4ATX4hl6qmmTXaVy92Rcgx&sz=w1000">
+</div>
+<div>
+<h2>Hi, I'm Helmy</h2>
+<p>I'm based in Giza, Egypt. I animate and edit videos for brands and creators, from logo animations to 2D characters that walk, run and show emotion.</p>
+<div class="tools" aria-label="Tools I use"><span>After Effects</span><span>Premiere Pro</span><span>Photoshop</span><span>Illustrator</span><span>Moho</span><span>DaVinci Resolve</span></div>
+</div>
+</div>
+</section>
+
+<section id="services">
+<h2>Services and prices</h2>
+<p class="sub">Click on any service below to order directly via WhatsApp.</p>
+<div class="prices">
+<a class="row" href="https://wa.me/201029069295?text=Hello%20Helmy,%20I'm%20interested%20in%20Motion%20graphics%20video%20service" target="_blank" rel="noopener">
+  <h3>Motion graphics video</h3>
+  <p>Logo stings, explainers and social promos.</p>
+  <div class="amt">2,000 EGP<small>per minute</small></div>
+</a>
+<a class="row" href="https://wa.me/201029069295?text=Hello%20Helmy,%20I'm%20interested%20in%20Video%20montage%20service" target="_blank" rel="noopener">
+  <h3>Video montage</h3>
+  <p>Clean, paced edits for ads and reels.</p>
+  <div class="amt">1,000 EGP<small>per 30 seconds</small></div>
+</a>
+<a class="row" href="https://wa.me/201029069295?text=Hello%20Helmy,%20I'm%20interested%20in%20YouTube%20video%20editing%20service" target="_blank" rel="noopener">
+  <h3>YouTube video editing</h3>
+  <p>Full edits for YouTube creators.</p>
+  <div class="amt">200 EGP<small>per minute</small></div>
+</a>
+</div>
+
+<!-- Payments Box with Interactive Copying -->
+<div class="payments-box">
+  <h4>💳 Payment Methods (طرق الدفع)</h4>
+  <p class="note">انقر على الرقم أو الإيميل للنسخ المباشر السريع لتسهيل عملية تحويل المستحقات:</p>
+  <div class="payment-methods">
+    <div class="pay-item">
+      <strong>⚡ InstaPay (انستا باي)</strong>
+      <div class="pay-action-btn" onclick="copyText('01152536240', 'InstaPay phone number')">
+        <span>01152536240</span>
+        <span class="copy-badge">نسخ 📋</span>
+      </div>
+    </div>
+    <div class="pay-item">
+      <strong>🌐 PayPal (بايبال)</strong>
+      <div class="pay-action-btn" onclick="copyText('motionhelmy2002@gmail.com', 'PayPal email address')">
+        <span style="font-size:13px;">motionhelmy2002@gmail.com</span>
+        <span class="copy-badge">نسخ 📋</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Direct Contact & Socials</h2>
+<p class="sub">طريقة التواصل الأساسية والمباشرة للاتفاق على المشاريع هي عبر الواتساب:</p>
+
+<div class="wa-banner">
+  <h3>تواصل معي مباشرة على الواتساب 💬</h3>
+  <p>اضغط على الزر أدناه لتحويلك تلقائياً للدردشة والمناقشة حول تفاصيل مشروعك القادم.</p>
+  <a class="btn wa-btn" href="https://wa.me/201029069295?text=مرحباً%20حلمي،%20أريد%20الاستفسار%20عن%20مشروع%20جديد" target="_blank" rel="noopener">
+    💬 فتح المحادثة (01029069295)
+  </a>
+</div>
+
+<div style="margin-top:36px;">
+  <h3 style="font-size:20px;color:var(--burgundy);">تابعني على منصات التواصل (Social Media)</h3>
+  <div class="social-links" id="contactSocials"></div>
+</div>
+</section>
+</div>
+
+<div id="gallery" hidden>
+<a class="back" href="#work">&#8592; Back to work</a>
+<h2 id="gtitle"></h2>
+<div class="vgrid" id="vids"></div>
+</div>
+
+<footer>&copy; 2026 Helmy Fouad — Motion Graphics & Video Editing</footer>
+</div>
+
+<div id="toast">Copied to clipboard!</div>
+
+<script>
+var PHONE = "01029069295";
+var DEFAULT_WORKS = [
+ {title:"مونتاج ريلز 1", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/16nJ-G46KtpIh5ZmRPzsWocMZygNRxqPr/view?usp=drive_link", thumb:""},
+ {title:"مونتاج ريلز 2", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/1ZerYY0im9gvW040BOaq17TXVvTUzYJZq/view?usp=drive_link", thumb:""},
+ {title:"مونتاج ريلز 3", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/1K2SFhLVU7HGBmvYBXFMhXz-BbGDYnwUG/view?usp=drive_link", thumb:""},
+ {title:"مونتاج ريلز 4", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/1gjFU1q8nXAJmPqpFKhX7VEye75MGtY8-/view?usp=drive_link", thumb:""},
+ {title:"مونتاج ريلز 5", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/1XV1-_VIwmEYhlKilYXvaTattJh3YOPiG/view?usp=drive_link", thumb:""},
+ {title:"مونتاج ريلز 6", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/1qYFXfj_zDO8YOlcAKm9DI_XIziAhMWYT/view?usp=drive_link", thumb:""},
+ {title:"مونتاج ريلز 7", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/1jPzewVT7r8C60ILmWLdqxApJajZimesT/view?usp=drive_link", thumb:""}
+];
+
+var DEFAULT_SOCIALS = {
+  tiktok: "https://www.tiktok.com",
+  instagram: "https://www.instagram.com",
+  facebook: "https://www.facebook.com",
+  other: ""
+};
+
+var WORKS = JSON.parse(localStorage.getItem("helmy_works")) || DEFAULT_WORKS;
+var SOCIALS = JSON.parse(localStorage.getItem("helmy_socials")) || DEFAULT_SOCIALS;
+var CATS={reels:"اعمال الريلز المونتاج",motion:"اعمال موشن جرافيك"};
+var reel=document.getElementById("reel"),chips=document.getElementById("chips"),cur="All";
+
+// Copying helper with fallback
+function copyText(text, label) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast("تم نسخ " + label + " بنجاح! 🎉");
+    });
+  } else {
+    var input = document.createElement("input");
+    input.value = text;
+    document.body.appendChild(input);
+    input.select();
+    try {
+      document.execCommand('copy');
+      showToast("تم نسخ " + label + " بنجاح! 🎉");
+    } catch (err) {
+      alert("الرقم هو: " + text);
+    }
+    document.body.removeChild(input);
+  }
+}
+
+function showToast(msg) {
+  var t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(function() { t.classList.remove("show"); }, 3000);
+}
+
+// Render Social Links
+function renderSocials() {
+  var icons = {
+    tiktok: '<svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-1.42V8.91a6.35 6.35 0 0 0-1 .08 6.34 6.34 0 1 0 6.34 6.34V9.25a8.16 8.16 0 0 0 4.77 1.52A8.18 8.18 0 0 0 22 10.45V7a4.86 4.86 0 0 1-2.41-.31z"/></svg>',
+    instagram: '<svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>',
+    facebook: '<svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
+    other: '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>'
+  };
+
+  var html = '';
+  if (SOCIALS.tiktok) html += '<a class="social-btn" href="'+esc(SOCIALS.tiktok)+'" target="_blank" rel="noopener">'+icons.tiktok+' TikTok</a>';
+  if (SOCIALS.instagram) html += '<a class="social-btn" href="'+esc(SOCIALS.instagram)+'" target="_blank" rel="noopener">'+icons.instagram+' Instagram</a>';
+  if (SOCIALS.facebook) html += '<a class="social-btn" href="'+esc(SOCIALS.facebook)+'" target="_blank" rel="noopener">'+icons.facebook+' Facebook</a>';
+  if (SOCIALS.other) html += '<a class="social-btn" href="'+esc(SOCIALS.other)+'" target="_blank" rel="noopener">'+icons.other+' YouTube / Portfolio</a>';
+
+  document.getElementById("heroSocials").innerHTML = html;
+  document.getElementById("contactSocials").innerHTML = html || '<p style="color:var(--muted)">لا توجد حسابات مضافة حالياً.</p>';
+}
+
+// Image Adjustment Controls
+var meImg = document.getElementById("me");
+var scaleInput = document.getElementById("imgScale");
+var posXInput = document.getElementById("imgPosX");
+var posYInput = document.getElementById("imgPosY");
+var scaleVal = document.getElementById("scaleVal");
+var posXVal = document.getElementById("posXVal");
+var posYVal = document.getElementById("posYVal");
+
+function updateImgTransform(){
+  var s = scaleInput.value;
+  var x = posXInput.value;
+  var y = posYInput.value;
+  scaleVal.textContent = s;
+  posXVal.textContent = x;
+  posYVal.textContent = y;
+  meImg.style.transform = 'translate(' + x + 'px, ' + y + 'px) scale(' + s + ')';
+}
+
+scaleInput.addEventListener("input", updateImgTransform);
+posXInput.addEventListener("input", updateImgTransform);
+posYInput.addEventListener("input", updateImgTransform);
+
+// Load Saved Profile Settings
+var savedProfilePic = localStorage.getItem("helmy_profile_pic");
+var savedScale = localStorage.getItem("helmy_img_scale") || "1.25";
+var savedX = localStorage.getItem("helmy_img_x") || "0";
+var savedY = localStorage.getItem("helmy_img_y") || "0";
+
+if(savedProfilePic){
+  meImg.src = savedProfilePic;
+  document.getElementById("profilePicUrl").value = savedProfilePic;
+}
+scaleInput.value = savedScale;
+posXInput.value = savedX;
+posYInput.value = savedY;
+updateImgTransform();
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function slug(c){for(var k in CATS)if(CATS[k]===c)return k;return "motion"}
+
+function getDriveThumb(url){
+  if(!url) return null;
+  var m = url.match(/drive\.google\.com\/file\/d\/([\w-]+)/);
+  if(m && m[1]) {
+    return 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w1000';
+  }
+  return null;
+}
+
+function renderThumb(w){
+  var driveImg = getDriveThumb(w.video);
+  var imgSrc = w.thumb || driveImg;
+  if(imgSrc) return '<div class="thumb"><img src="'+esc(imgSrc)+'" alt="'+esc(w.title)+'">';
+  return '<div class="thumb"><div class="thumb-placeholder">'+esc(w.title)+'</div>';
+}
+
+function player(w){
+ var u=w.video||"",m,a=' title="'+esc(w.title)+'" allow="fullscreen" allowfullscreen loading="lazy"></iframe>';
+ if(!u)return renderThumb(w)+'</div>';
+ if(m=u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/))return '<iframe src="https://www.youtube.com/embed/'+m[1]+'"'+a;
+ if(m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/))return '<iframe src="https://player.vimeo.com/video/'+m[1]+'"'+a;
+ if(m=u.match(/drive\.google\.com\/file\/d\/([\w-]+)/))return '<iframe src="https://drive.google.com/file/d/'+m[1]+'/preview"'+a;
+ return '<video controls playsinline preload="metadata" src="'+esc(u)+'"></video>';
+}
+function vid(w){return '<div class="vid"><div class="frame">'+player(w)+'</div><h3>'+esc(w.title)+'</h3>'+(w.video?'':'<span>Video coming soon</span>')+'</div>'}
+
+function renderManageList(){
+  var container = document.getElementById("projectManageList");
+  if(!WORKS.length){
+    container.innerHTML = '<p style="font-size:14px;color:var(--muted);">No projects found.</p>';
+    return;
+  }
+  container.innerHTML = WORKS.map(function(w, index){
+    return '<div class="manage-item"><span><strong>'+esc(w.title)+'</strong> ('+esc(w.cat)+')</span><button class="btn danger" onclick="deleteProject('+index+')">حذف</button></div>';
+  }).join("");
+}
+
+function deleteProject(index){
+  if(confirm("هل أنت تأكد من حذف هذا المشروع؟")){
+    WORKS.splice(index, 1);
+    localStorage.setItem("helmy_works", JSON.stringify(WORKS));
+    draw();
+    renderManageList();
+    route();
+  }
+}
+
+function draw(){
+ var list=WORKS.filter(function(w){return cur==="All"||w.cat===cur});
+ reel.innerHTML=list.length?list.map(function(w){
+  return '<a class="work" href="#v='+slug(w.cat)+'">'+renderThumb(w)+(w.video?'<div class="play" aria-hidden="true">&#9654;</div>':'')+'</div><h3>'+esc(w.title)+'</h3><span>'+esc(w.cat)+'</span></a>';
+ }).join(""):'<p class="empty">No projects in this category yet.</p>';
+ reel.scrollLeft=0;
+}
+
+var cats=["All"];for(var k in CATS)cats.push(CATS[k]);
+chips.innerHTML=cats.map(function(c){return '<button class="chip" aria-pressed="'+(c===cur)+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'}).join("");
+chips.addEventListener("click",function(e){var b=e.target.closest(".chip");if(!b)return;cur=b.getAttribute("data-c");
+ [].forEach.call(chips.children,function(x){x.setAttribute("aria-pressed",x===b)});draw()});
+
+document.getElementById("prev").onclick=function(){reel.scrollBy({left:-440,behavior:"smooth"})};
+document.getElementById("next").onclick=function(){reel.scrollBy({left:440,behavior:"smooth"})};
+
+document.getElementById("adminToggle").onclick=function(){
+  var p=document.getElementById("adminPanel");
+  p.style.display=p.style.display==="block"?"none":"block";
+  if(p.style.display==="block") {
+    renderManageList();
+    document.getElementById("sTikTok").value = SOCIALS.tiktok || "";
+    document.getElementById("sInsta").value = SOCIALS.instagram || "";
+    document.getElementById("sFB").value = SOCIALS.facebook || "";
+    document.getElementById("sOther").value = SOCIALS.other || "";
+  }
+};
+
+document.getElementById("saveProj").onclick=function(){
+  var t=document.getElementById("pTitle").value;
+  var c=document.getElementById("pCat").value;
+  var v=document.getElementById("pVid").value;
+  var th=document.getElementById("pThumb").value;
+  if(!t)return alert("Please enter a title");
+  WORKS.unshift({title:t,cat:c,video:v,thumb:th});
+  localStorage.setItem("helmy_works",JSON.stringify(WORKS));
+  draw();
+  renderManageList();
+  document.getElementById("adminPanel").style.display="none";
+  document.getElementById("pTitle").value="";
+  document.getElementById("pVid").value="";
+  document.getElementById("pThumb").value="";
+};
+
+document.getElementById("saveSocials").onclick=function(){
+  SOCIALS.tiktok = document.getElementById("sTikTok").value.trim();
+  SOCIALS.instagram = document.getElementById("sInsta").value.trim();
+  SOCIALS.facebook = document.getElementById("sFB").value.trim();
+  SOCIALS.other = document.getElementById("sOther").value.trim();
+  localStorage.setItem("helmy_socials", JSON.stringify(SOCIALS));
+  renderSocials();
+  alert("تم حفظ حسابات التواصل بنجاح!");
+};
+
+document.getElementById("saveProfilePic").onclick=function(){
+  var url = document.getElementById("profilePicUrl").value;
+  if(url){
+    var m = url.match(/drive\.google\.com\/file\/d\/([\w-]+)/);
+    if(m && m[1]) {
+      url = 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w1000';
+    }
+    localStorage.setItem("helmy_profile_pic", url);
+    meImg.src = url;
+  }
+  localStorage.setItem("helmy_img_scale", scaleInput.value);
+  localStorage.setItem("helmy_img_x", posXInput.value);
+  localStorage.setItem("helmy_img_y", posYInput.value);
+  alert("Profile image settings saved successfully!");
+};
+
+function route(){
+ var m=location.hash.match(/^#v=(\w+)$/),home=document.getElementById("home"),g=document.getElementById("gallery");
+ if(m&&CATS[m[1]]){
+  var cat=CATS[m[1]],list=WORKS.filter(function(w){return w.cat===cat});
+  document.getElementById("gtitle").textContent=cat;
+  document.getElementById("vids").innerHTML=list.length?list.map(vid).join(""):'<p class="empty">No videos in this category yet.</p>';
+  home.hidden=true;g.hidden=false;window.scrollTo(0,0);
+ }else{
+  g.hidden=true;home.hidden=false;
+  try{var el=location.hash.length>1&&document.querySelector(location.hash);if(el)el.scrollIntoView()}catch(x){}
+ }
+}
+window.addEventListener("hashchange",route);
+
+draw();
+renderSocials();
+route();
+</script>
+</body>
+</html>
