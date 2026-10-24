@@ -38,6 +38,11 @@ header{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
 nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
 nav a{text-decoration:none;color:var(--muted);font-weight:500;transition:color .2s}
 nav a:hover{color:var(--ink)}
+
+/* Scroll & entrance animation classes */
+.reveal{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(0.16, 1, 0.3, 1)}
+.reveal.active{opacity:1;transform:translateY(0)}
+
 .hero{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding:56px 0 72px}
 .hero h1{font-size:clamp(48px,9vw,104px);font-weight:800;color:var(--burgundy)}
 .hero p{max-width:46ch;color:var(--muted);font-size:19px;margin:22px 0 30px}
@@ -63,19 +68,30 @@ section h2{font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--burgundy)}
 .sub{color:var(--muted);max-width:56ch;margin:12px 0 0}
 
 .reasons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:36px}
-.reason-card{background:var(--card);border:1px solid var(--card-border);padding:28px 22px;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,0.02);transition:transform .2s, border-color .2s}
-.reason-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.reason-card{background:var(--card);border:1px solid var(--card-border);padding:28px 22px;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,0.02);transition:transform .3s, border-color .3s}
+.reason-card:hover{transform:translateY(-6px);border-color:var(--accent)}
 .reason-icon{font-size:32px;margin-bottom:12px;display:inline-block}
 .reason-card h3{font-size:20px;color:var(--burgundy);margin-bottom:8px}
 .reason-card p{font-size:15px;color:var(--muted);margin:0;line-height:1.5}
 
-/* Freelance Platform Badge Styles */
-.platforms-grid{display:grid;grid-template-columns:minmax(240px, 360px);gap:16px;margin-top:28px}
-.platform-badge{display:flex;align-items:center;gap:14px;padding:18px 22px;background:var(--card);border:1.5px solid var(--card-border);border-radius:14px;text-decoration:none;transition:all .2s;box-shadow:0 2px 10px rgba(0,0,0,0.02)}
-.platform-badge:hover{border-color:var(--accent);transform:translateY(-2px)}
-.platform-badge span{font-size:28px}
-.platform-badge strong{display:block;font-size:17px;color:var(--ink)}
-.platform-badge small{color:var(--muted);font-size:14px}
+/* Freelance Platform & Reviews Styles */
+.freelancer-box{background:var(--card);border:1.5px solid var(--card-border);border-radius:16px;padding:28px;margin-top:28px;box-shadow:0 4px 16px rgba(0,0,0,0.02)}
+.freelancer-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.freelancer-title{display:flex;align-items:center;gap:12px}
+.freelancer-title span{font-size:28px}
+.freelancer-title strong{font-size:18px;color:var(--burgundy)}
+.freelancer-rating-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(207,49,71,0.08);border:1px solid var(--accent);color:var(--accent);padding:6px 14px;border-radius:999px;font-weight:700;font-size:15px}
+
+.freelancer-reviews-list{display:grid;gap:16px}
+.fl-review-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px;transition:transform .2s}
+.fl-review-card:hover{transform:translateX(4px);border-color:var(--accent)}
+.fl-review-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.fl-client{font-weight:700;color:var(--ink);display:flex;align-items:center;gap:8px}
+.fl-stars{color:#FFB800;font-size:14px}
+.fl-project-title{font-weight:600;color:var(--burgundy);font-size:15px;margin-bottom:4px}
+.fl-comment{margin:0;font-size:14px;color:var(--muted);line-height:1.5}
+.fl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.fl-tags span{background:var(--card);border:1px solid var(--card-border);padding:2px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
 
 /* Reviews & Rating Form Styles */
 .reviews-container{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px}
@@ -115,8 +131,8 @@ section h2{font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--burgundy)}
 .arrows button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font-size:20px;cursor:pointer;transition:all .2s}
 .arrows button:hover{background:var(--accent);color:#FFF;border-color:var(--accent)}
 .reel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 24px 20px;margin:0 -24px;scrollbar-width:thin}
-.work{flex:0 0 min(420px,82%);scroll-snap-align:start;text-decoration:none;display:block;background:var(--card);padding:16px;border-radius:16px;border:1px solid var(--card-border);box-shadow:0 4px 16px rgba(0,0,0,0.03);transition:transform .2s}
-.work:hover{transform:translateY(-4px);border-color:var(--accent)}
+.work{flex:0 0 min(420px,82%);scroll-snap-align:start;text-decoration:none;display:block;background:var(--card);padding:16px;border-radius:16px;border:1px solid var(--card-border);box-shadow:0 4px 16px rgba(0,0,0,0.03);transition:transform .3s}
+.work:hover{transform:translateY(-6px);border-color:var(--accent)}
 .thumb{aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:10px;background:linear-gradient(135deg, var(--burgundy), var(--ink));display:grid;place-items:center}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .thumb-placeholder{color:rgba(255,255,255,0.8);font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:18px;text-align:center;padding:0 16px}
@@ -163,7 +179,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 <body>
 <canvas id="particles-canvas"></canvas>
 <div class="wrap">
-<header>
+<header class="reveal">
   <a class="brand-logo" href="#home" aria-label="motionhelmy">
     <img class="logo-img" src="https://drive.google.com/thumbnail?id=1lzsFH8YqnmPW7yqSTAnQ3XSJj5eF754E&sz=w1000" alt="Helmy Fouad">
     <span class="brand-title">motionhelmy</span>
@@ -180,7 +196,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 </header>
 
 <div id="home">
-<div class="hero">
+<div class="hero reveal">
 <div>
 <h1>Helmy Fouad</h1>
 <p>Motion graphics designer and video editor. I turn ideas into moving pictures for brands, creators and stories.</p>
@@ -190,7 +206,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 <div class="stage" aria-hidden="true"><div class="morph"></div></div>
 </div>
 
-<section id="work">
+<section id="work" class="reveal">
 <div class="bar">
 <div><h2>Selected work</h2><p class="sub">Scroll sideways or use the arrows. Select a project to see all videos in its category.</p>
 <div class="chips" id="chips" role="group" aria-label="Filter by type"></div></div>
@@ -199,7 +215,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 <div class="reel" id="reel" tabindex="0" aria-label="Work reel"></div>
 </section>
 
-<section id="why">
+<section id="why" class="reveal">
 <h2>Why Work With Me?</h2>
 <p class="sub">I don't just edit videos; I craft visual experiences that capture attention and drive results.</p>
 <div class="reasons-grid">
@@ -225,23 +241,66 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
   </div>
 </div>
 
-<div style="margin-top: 48px;">
-  <h3 style="color:var(--burgundy); font-size:22px; margin-bottom:8px;">ملفي على منصة Freelancer (Freelancer Profile)</h3>
-  <p class="sub" style="margin-top:0;">يمكنك التواصل معي والمشارطة مباشرة عبر منصة العمل الحر الرسمية:</p>
-  <div class="platforms-grid">
-    <a class="platform-badge" href="https://www.freelancer.com/u/motionhelmy?frm=motionhelmy&sb=t" target="_blank" rel="noopener">
+<!-- Freelancer Reviews Box -->
+<div class="freelancer-box reveal">
+  <div class="freelancer-header">
+    <div class="freelancer-title">
       <span>🌐</span>
       <div>
-        <strong>Freelancer.com</strong>
-        <small>@motionhelmy</small>
+        <strong>Freelancer.com Verified Profile</strong>
+        <p style="margin:0; font-size:14px; color:var(--muted);">حساب موثق مع تقييمات العملاء السابقة</p>
       </div>
+    </div>
+    <a href="https://www.freelancer.com/u/motionhelmy?frm=motionhelmy&sb=t" target="_blank" rel="noopener" class="freelancer-rating-badge">
+      ★ 5.0 (3 Verified Reviews) ↗
     </a>
+  </div>
+
+  <div class="freelancer-reviews-list">
+    <!-- Review 1 -->
+    <div class="fl-review-card">
+      <div class="fl-review-top">
+        <span class="fl-client">👤 Former Client <small style="color:var(--muted); font-weight:400;">(inactive)</small></span>
+        <span class="fl-stars">★★★★★ 5.0</span>
+      </div>
+      <div class="fl-project-title">simple animation</div>
+      <p class="fl-comment">"Thanks and great work ......."</p>
+      <div class="fl-tags">
+        <span>Adobe Flash</span><span>Graphic Design</span><span>Animation</span><span>After Effects</span><span>3D Animation</span>
+      </div>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="fl-review-card">
+      <div class="fl-review-top">
+        <span class="fl-client">🇮🇳 Pushp</span>
+        <span class="fl-stars">★★★★★ 5.0</span>
+      </div>
+      <div class="fl-project-title">Medication</div>
+      <p class="fl-comment">"Good work as done by 3 rd time"</p>
+      <div class="fl-tags">
+        <span>Graphic Design</span><span>Video Services</span><span>After Effects</span><span>Video Production</span><span>Video Editing</span>
+      </div>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="fl-review-card">
+      <div class="fl-review-top">
+        <span class="fl-client">🇦🇪 Roanne</span>
+        <span class="fl-stars">★★★★★ 5.0</span>
+      </div>
+      <div class="fl-project-title">Simple wedding video</div>
+      <p class="fl-comment">"I really enjoyed working with him. His work is very patient and he is very knowledgeable. He is definitely someone I would recommend :)"</p>
+      <div class="fl-tags">
+        <span>Video Services</span><span>After Effects</span><span>Videography</span><span>Video Production</span>
+      </div>
+    </div>
   </div>
 </div>
 </section>
 
-<section id="reviews">
-<h2>تقييمات وآراء العملاء (Client Reviews)</h2>
+<section id="reviews" class="reveal">
+<h2>تقييمات وآراء العملاء المباشرين (Direct Reviews)</h2>
 <p class="sub">شاركونا انطباعاتكم وتقييمكم للخدمات، أو اطلّع على تجارب العملاء الجدد.</p>
 <div class="reviews-container">
   <div class="review-form-card">
@@ -277,7 +336,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 </div>
 </section>
 
-<section id="agreement">
+<section id="agreement" class="reveal">
 <h2>شروط واتفاقية العمل (Terms & Agreement)</h2>
 <p class="sub">نحرص على ضمان حقوق الطرفين وتقديم تجربة عمل احترافية وواضحة من البداية. يمكنك الاطلاع على الاتفاقية باللغة العربية أو الإنجليزية.</p>
 <div class="agreement-card">
@@ -303,7 +362,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 </div>
 </section>
 
-<section id="about">
+<section id="about" class="reveal">
 <div class="about">
 <div class="me-container">
   <img class="me" id="me" alt="Helmy Fouad" src="https://drive.google.com/thumbnail?id=1lzsFH8YqnmPW7yqSTAnQ3XSJj5eF754E&sz=w1000">
@@ -316,7 +375,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 </div>
 </section>
 
-<section id="services">
+<section id="services" class="reveal">
 <h2>Services and prices</h2>
 <p class="sub">Click on any service below to order directly via WhatsApp.</p>
 <div class="prices">
@@ -354,7 +413,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="reveal">
 <h2>Order on WhatsApp</h2>
 <p class="sub">Primary communication and order discussions happen via WhatsApp for fast responses and file sharing.</p>
 <div class="contact-note">
@@ -375,6 +434,21 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 </div>
 
 <script>
+// Scroll Reveal Animation Script
+window.addEventListener('scroll', revealOnScroll);
+function revealOnScroll() {
+  var reveals = document.querySelectorAll('.reveal');
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 80;
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add('active');
+    }
+  }
+}
+revealOnScroll();
+
 // Particles Background & Click Burst System
 (function(){
   var canvas = document.getElementById("particles-canvas");
@@ -485,7 +559,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
   animate();
 })();
 
-// Reviews System Logic (Without fake reviews)
+// Direct Reviews System Logic
 (function(){
   var selectedRating = 5;
   var starSpans = document.querySelectorAll("#starInput span");
@@ -508,7 +582,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
     var revs = getReviews();
     var container = document.getElementById("reviewsList");
     if(!revs.length){
-      container.innerHTML = '<p style="color:var(--muted); font-size:14px; margin:0;">لا توجد تقييمات حالياً. كن أول من يشارك رأيه!</p>';
+      container.innerHTML = '<p style="color:var(--muted); font-size:14px; margin:0;">لا توجد تقييمات مباشرة حالياً. كن أول من يشارك رأيه!</p>';
       return;
     }
     container.innerHTML = revs.map(function(r){
