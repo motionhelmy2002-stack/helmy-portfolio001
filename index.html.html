@@ -69,6 +69,32 @@ section h2{font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--burgundy)}
 .reason-card h3{font-size:20px;color:var(--burgundy);margin-bottom:8px}
 .reason-card p{font-size:15px;color:var(--muted);margin:0;line-height:1.5}
 
+/* Freelance Platforms Badge Styles */
+.platforms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:28px}
+.platform-badge{display:flex;align-items:center;gap:12px;padding:16px 20px;background:var(--card);border:1.5px solid var(--card-border);border-radius:14px;text-decoration:none;transition:all .2s;box-shadow:0 2px 10px rgba(0,0,0,0.02)}
+.platform-badge:hover{border-color:var(--accent);transform:translateY(-2px)}
+.platform-badge span{font-size:24px}
+.platform-badge strong{display:block;font-size:16px;color:var(--ink)}
+.platform-badge small{color:var(--muted);font-size:13px}
+
+/* Reviews & Rating Form Styles */
+.reviews-container{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px}
+@media(max-width:768px){.reviews-container{grid-template-columns:1fr}}
+.review-form-card, .reviews-list-card{background:var(--card);border:1.5px solid var(--card-border);padding:28px;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,0.02)}
+.review-form-card h3, .reviews-list-card h3{color:var(--burgundy);font-size:22px;margin-bottom:16px}
+.star-rating-input{display:flex;gap:6px;font-size:28px;cursor:pointer;margin-bottom:16px;color:#DDD}
+.star-rating-input span.active{color:#FFB800}
+.form-field{margin-bottom:14px}
+.form-field label{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+.form-field input, .form-field textarea{width:100%;padding:10px 14px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-family:inherit;font-size:15px}
+.reviews-scroll{max-height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;padding-right:4px}
+.review-item{padding:16px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}
+.review-item-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.review-item-name{font-weight:700;color:var(--ink);font-size:16px}
+.review-item-role{font-size:13px;color:var(--muted)}
+.review-item-stars{color:#FFB800;font-size:14px}
+.review-item-text{margin:6px 0 0;font-size:14px;color:var(--muted);line-height:1.5}
+
 /* Agreement Box Styles */
 .agreement-card{background:var(--card);border:2px solid var(--card-border);padding:32px;border-radius:16px;margin-top:36px;box-shadow:0 4px 20px rgba(0,0,0,0.03)}
 .agreement-card h3{color:var(--burgundy);font-size:24px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
@@ -145,6 +171,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
   <nav aria-label="Main">
     <a href="#work">Work</a>
     <a href="#why">Why Me</a>
+    <a href="#reviews">Reviews</a>
     <a href="#agreement">Agreement</a>
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -195,6 +222,71 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
     <span class="reason-icon">🚀</span>
     <h3>Fast & Reliable Delivery</h3>
     <p>Standard delivery in 3 days (varies by project complexity), agreed upon before starting, with strict deadline adherence.</p>
+  </div>
+</div>
+
+<div style="margin-top: 48px;">
+  <h3 style="color:var(--burgundy); font-size:22px; margin-bottom:8px;">حسابات منصات العمل الحر (Freelance Profiles)</h3>
+  <p class="sub" style="margin-top:0;">تأكيداً للاحترافية والخبرة، يمكنك متابعة خيارات التعامل عبر منصات العمل الحر الرسمية:</p>
+  <div class="platforms-grid">
+    <a class="platform-badge" href="https://www.freelancer.com" target="_blank" rel="noopener">
+      <span>🌐</span>
+      <div>
+        <strong>Freelancer.com</strong>
+        <small>Verified Freelancer</small>
+      </div>
+    </a>
+    <a class="platform-badge" href="https://www.upwork.com" target="_blank" rel="noopener">
+      <span>🟢</span>
+      <div>
+        <strong>Upwork</strong>
+        <small>Video & Motion Specialist</small>
+      </div>
+    </a>
+    <a class="platform-badge" href="https://mostaql.com" target="_blank" rel="noopener">
+      <span>🔵</span>
+      <div>
+        <strong>مستقل (Mostaql)</strong>
+        <small>مصمم موشن جرافيك ومونتير</small>
+      </div>
+    </a>
+  </div>
+</div>
+</section>
+
+<section id="reviews">
+<h2>تقييمات وآراء العملاء (Client Reviews)</h2>
+<p class="sub">شاركونا انطباعاتكم وتقييمكم للخدمات، أو اضطلع على تجارب العملاء السابقين.</p>
+<div class="reviews-container">
+  <div class="review-form-card">
+    <h3>أضف تقييمك للخدمة ✍️</h3>
+    <form id="reviewForm">
+      <div class="star-rating-input" id="starInput">
+        <span data-val="1">★</span>
+        <span data-val="2">★</span>
+        <span data-val="3">★</span>
+        <span data-val="4">★</span>
+        <span data-val="5" class="active">★</span>
+      </div>
+      <div class="form-field">
+        <label>الاسم الكامل</label>
+        <input type="text" id="revName" placeholder="مثال: أحمد علي" required>
+      </div>
+      <div class="form-field">
+        <label>المسمى الوظيفي / اسم الشركة (اختياري)</label>
+        <input type="text" id="revRole" placeholder="مثال: صانع محتوى / شركة تسويق">
+      </div>
+      <div class="form-field">
+        <label>رأيك وتجربتك معنا</label>
+        <textarea id="revText" rows="3" placeholder="اكتب انطباعك عن الجودة والتسليم..." required></textarea>
+      </div>
+      <button class="btn main" type="submit" style="width:100%;">إرسال التقييم</button>
+    </form>
+  </div>
+
+  <div class="reviews-list-card">
+    <h3>آراء العملاء ⭐</h3>
+    <div class="reviews-scroll" id="reviewsList"></div>
   </div>
 </div>
 </section>
@@ -405,6 +497,65 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
   }
 
   animate();
+})();
+
+// Reviews System Logic
+(function(){
+  var DEFAULT_REVIEWS = [
+    {name:"محمد الشريف", role:"صانع محتوى", stars:5, text:"عمل احترافي جداً ومونتاج ريلز خرافية وسريعة والتزام تام بالوقت. بنصح بالتعامل مع حلمي جداً!"},
+    {name:"سارة أحمد", role:"مديرة تسويق", stars:5, text:"فيديو الموشن جرافيك طلع تحفة وحقق نتائج ممتازة في حملتنا الإعلانية."}
+  ];
+
+  var selectedRating = 5;
+  var starSpans = document.querySelectorAll("#starInput span");
+
+  starSpans.forEach(function(s){
+    s.addEventListener("click", function(){
+      selectedRating = parseInt(this.getAttribute("data-val"));
+      starSpans.forEach(function(x, idx){
+        if(idx < selectedRating) x.classList.add("active");
+        else x.classList.remove("active");
+      });
+    });
+  });
+
+  function getReviews(){
+    return JSON.parse(localStorage.getItem("helmy_reviews")) || DEFAULT_REVIEWS;
+  }
+
+  function renderReviews(){
+    var revs = getReviews();
+    var container = document.getElementById("reviewsList");
+    if(!revs.length){
+      container.innerHTML = '<p style="color:var(--muted); font-size:14px;">لا توجد تقييمات حالياً.</p>';
+      return;
+    }
+    container.innerHTML = revs.map(function(r){
+      var starsStr = "★".repeat(r.stars) + "☆".repeat(5 - r.stars);
+      return '<div class="review-item"><div class="review-item-head"><div><span class="review-item-name">'+esc(r.name)+'</span> '+(r.role ? '<span class="review-item-role">('+esc(r.role)+')</span>' : '')+'</div><div class="review-item-stars">'+starsStr+'</div></div><p class="review-item-text">'+esc(r.text)+'</p></div>';
+    }).join("");
+  }
+
+  document.getElementById("reviewForm").onsubmit = function(e){
+    e.preventDefault();
+    var name = document.getElementById("revName").value;
+    var role = document.getElementById("revRole").value;
+    var text = document.getElementById("revText").value;
+
+    if(!name || !text) return;
+
+    var revs = getReviews();
+    revs.unshift({name: name, role: role, stars: selectedRating, text: text});
+    localStorage.setItem("helmy_reviews", JSON.stringify(revs));
+    renderReviews();
+
+    document.getElementById("reviewForm").reset();
+    selectedRating = 5;
+    starSpans.forEach(function(x){ x.classList.add("active"); });
+    alert("شكراً لك! تم إضافة تقييمك بنجاح.");
+  };
+
+  renderReviews();
 })();
 
 var PHONE = "01029069295";
