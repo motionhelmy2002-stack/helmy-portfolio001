@@ -35,7 +35,7 @@ header{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
 .brand-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .logo-img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--burgundy);box-shadow:0 2px 8px rgba(89,31,40,0.25)}
 .brand-title{font-family:"Bricolage Grotesque",sans-serif;font-size:22px;font-weight:800;color:var(--burgundy);letter-spacing:-0.02em}
-nav{display:flex;gap:22px;align-items:center}
+nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
 nav a{text-decoration:none;color:var(--muted);font-weight:500;transition:color .2s}
 nav a:hover{color:var(--ink)}
 .hero{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding:56px 0 72px}
@@ -68,6 +68,18 @@ section h2{font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--burgundy)}
 .reason-icon{font-size:32px;margin-bottom:12px;display:inline-block}
 .reason-card h3{font-size:20px;color:var(--burgundy);margin-bottom:8px}
 .reason-card p{font-size:15px;color:var(--muted);margin:0;line-height:1.5}
+
+/* Agreement Box Styles */
+.agreement-card{background:var(--card);border:2px solid var(--card-border);padding:32px;border-radius:16px;margin-top:36px;box-shadow:0 4px 20px rgba(0,0,0,0.03)}
+.agreement-card h3{color:var(--burgundy);font-size:24px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.agreement-list{display:grid;gap:16px;margin:20px 0}
+.agreement-item{display:flex;gap:12px;align-items:start}
+.agreement-item span{font-size:20px}
+.agreement-item p{margin:0;font-size:16px;color:var(--muted);line-height:1.6}
+.agreement-item p strong{color:var(--ink)}
+.agreement-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.agreement-link-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;background:var(--burgundy);color:#FFF;border-radius:10px;text-decoration:none;font-weight:600;transition:background .2s}
+.agreement-link-btn:hover{background:var(--accent)}
 
 .bar{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
@@ -133,6 +145,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
   <nav aria-label="Main">
     <a href="#work">Work</a>
     <a href="#why">Why Me</a>
+    <a href="#agreement">Agreement</a>
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#contact">Contact</a>
@@ -169,9 +182,9 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
     <p>Turning raw video footage and ideas into structured, engaging stories that hook viewers from the very first second.</p>
   </div>
   <div class="reason-card">
-    <span class="reason-icon">📈</span>
-    <h3>High Retention Editing</h3>
-    <p>Using dynamic pacing, sound design, motion graphics, and clean cuts to keep your audience watching until the end.</p>
+    <span class="reason-icon">🤖</span>
+    <h3>AI-Powered Workflows</h3>
+    <p>Utilizing AI for storyboards, concepts, and custom visual assets to speed up delivery without sacrificing creative quality.</p>
   </div>
   <div class="reason-card">
     <span class="reason-icon">✨</span>
@@ -181,7 +194,33 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
   <div class="reason-card">
     <span class="reason-icon">🚀</span>
     <h3>Fast & Reliable Delivery</h3>
-    <p>Clear communication, structured feedback, and strict adherence to project deadlines every single time.</p>
+    <p>Standard delivery in 3 days (varies by project complexity), agreed upon before starting, with strict deadline adherence.</p>
+  </div>
+</div>
+</section>
+
+<section id="agreement">
+<h2>شروط واتفاقية العمل (Terms & Agreement)</h2>
+<p class="sub">نحرص على ضمان حقوق الطرفين وتقديم تجربة عمل احترافية وواضحة من البداية. يمكنك الاطلاع على الاتفاقية باللغة العربية أو الإنجليزية.</p>
+<div class="agreement-card">
+  <h3>📜 وثائق الاتفاق والشروط (Agreement Documents)</h3>
+  <div class="agreement-list">
+    <div class="agreement-item">
+      <span>⏱️</span>
+      <p><strong>مدة التسليم:</strong> مدة التسليم الافتراضية للنسخة الأولية هي <strong>3 أيام عمل</strong>، وقد تختلف المدة (زيادة أو نقصاناً) بحسب نوع الفيديو وتعقيده، ويتم الاتفاق على الوقت بدقة مع العميل قبل بدء التنفيذ.</p>
+    </div>
+    <div class="agreement-item">
+      <span>🤖</span>
+      <p><strong>استخدام الذكاء الاصطناعي (AI):</strong> يتم الاستعانة بأدوات الذكاء الاصطناعي في مراحل تطوير الأفكار، إنشاء الاستوري بورد، وتوليد بعض العناصر والأسيتس البصرية لتسريع العمل ورفع الجودة الإبداعية.</p>
+    </div>
+    <div class="agreement-item">
+      <span>💳</span>
+      <p><strong>نظام الدفع:</strong> يتم دفع عربون بنسبة 50% مقدمًا لبدء العمل، وتسليم النسخة النهائية بدون علامة مائية بعد سداد النسبة المتبقية (50%) عبر InstaPay أو PayPal.</p>
+    </div>
+  </div>
+  <div class="agreement-buttons">
+    <a class="agreement-link-btn" href="https://drive.google.com/file/d/11CUSEOFaIdkA3pB4gm3riEbiDXZ7weEv/view?usp=drive_link" target="_blank" rel="noopener">📄 النسخة العربية (Arabic Agreement)</a>
+    <a class="agreement-link-btn" href="https://drive.google.com/file/d/1BqdUjuIsB1ZQISnYQtxqk2y0rdJ0CaAa/view?usp=drive_link" target="_blank" rel="noopener">📄 النسخة الإنجليزية (English Agreement)</a>
   </div>
 </div>
 </section>
@@ -193,8 +232,8 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 </div>
 <div>
 <h2>Hi, I'm Helmy</h2>
-<p>I'm based in Giza, Egypt. I animate and edit videos for brands and creators, from logo animations to 2D characters that walk, run and show emotion.</p>
-<div class="tools" aria-label="Tools I use"><span>After Effects</span><span>Premiere Pro</span><span>Photoshop</span><span>Illustrator</span><span>Moho</span><span>DaVinci Resolve</span></div>
+<p>I'm based in Giza, Egypt. I animate and edit videos for brands and creators, combining After Effects, Premiere Pro, and modern AI tools to bring storyboards and characters to life.</p>
+<div class="tools" aria-label="Tools I use"><span>After Effects</span><span>Premiere Pro</span><span>Photoshop</span><span>Illustrator</span><span>Moho</span><span>AI Tools</span></div>
 </div>
 </div>
 </section>
@@ -241,7 +280,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 <h2>Order on WhatsApp</h2>
 <p class="sub">Primary communication and order discussions happen via WhatsApp for fast responses and file sharing.</p>
 <div class="contact-note">
-  <p>📱 <strong>طريقة التواصل الأساسية:</strong> يرجى التواصل المباشر عبر الواتساب على الرقم <strong>01029069295</strong> لمناقشة التفاصيل وبدء المشروع.</p>
+  <p>📱 <strong>شروط التسليم والاتفاق:</strong> يتم التسليم المبدئي عادةً خلال 3 أيام عمل (أو حسب الموعد المتفق عليه بحسب حجم المشروع). يتضمن العمل استخدام أدوات الذكاء الاصطناعي لإنشاء الاستوري بورد وتوليد العناصر الجرافيكية بأعلى جودة.</p>
 </div>
 <a class="btn wa-btn wa" href="https://wa.me/201029069295" target="_blank" rel="noopener">Chat on WhatsApp (01029069295)</a>
 <div class="social-links" id="contactSocials" style="margin-top:24px;"></div>
