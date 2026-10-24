@@ -51,7 +51,6 @@ header b{font-family:"Bricolage Grotesque",sans-serif;font-size:20px;color:var(-
 nav{display:flex;gap:22px;align-items:center}
 nav a{text-decoration:none;color:var(--muted);font-weight:500;transition:color .2s}
 nav a:hover{color:var(--ink)}
-.admin-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;background:rgba(207,49,71,0.1);border:1px solid var(--accent);color:var(--accent);font-size:13px;font-weight:600;cursor:pointer}
 .hero{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding:56px 0 72px}
 .hero h1{font-size:clamp(48px,9vw,104px);font-weight:800;color:var(--burgundy)}
 .hero p{max-width:46ch;color:var(--muted);font-size:19px;margin:22px 0 30px}
@@ -59,12 +58,11 @@ nav a:hover{color:var(--ink)}
 .btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:500;text-decoration:none;border:2px solid var(--ink);cursor:pointer;font:500 16px "DM Sans",sans-serif;background:transparent;color:var(--ink);transition:all .2s}
 .btn.main{background:var(--accent);border-color:var(--accent);color:var(--on-accent);box-shadow:0 4px 20px rgba(207,49,71,0.35)}
 .btn.main:hover{background:var(--burgundy);border-color:var(--burgundy);transform:translateY(-2px)}
-.btn.danger{background:#d9534f;border-color:#d9534f;color:#fff;padding:4px 10px;font-size:13px;border-radius:6px}
 .stage{aspect-ratio:1;display:grid;place-items:center}
 .morph{width:64%;aspect-ratio:1;background:var(--accent);animation:morph 7s ease-in-out infinite;box-shadow:0 10px 40px rgba(207,49,71,0.25)}
 .about{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:64px;align-items:center}
 .me-container{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:4px solid var(--burgundy);box-shadow:0 12px 30px rgba(89,31,40,0.35);background:#000}
-.me{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;border-radius:50%;transform-origin:center;transition:transform 0.1s ease;transform:scale(1)}
+.me{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%;border-radius:50%;transform-origin:center;transform:scale(1.2)}
 .about p{max-width:54ch;margin:16px 0 0;color:var(--muted)}
 .tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .tools span{padding:6px 14px;border-radius:999px;border:1.5px solid var(--card-border);background:var(--card);font-size:15px;color:var(--ink)}
@@ -137,14 +135,6 @@ section h2{font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--burgundy)}
 
 .wa-btn{margin-top:16px;background:#25D366;border-color:#25D366;color:#000;font-weight:700}
 footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
-#adminPanel{background:var(--card);border:2px solid var(--accent);padding:24px;border-radius:16px;margin:32px 0;display:none}
-#adminPanel h3{margin-bottom:16px;color:var(--burgundy)}
-.form-group{margin-bottom:12px}
-.form-group label{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
-.form-group input, .form-group select{width:100%;padding:10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-family:inherit}
-.controls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:8px}
-.manage-list{margin-top:20px;border-top:1px solid var(--line);padding-top:16px}
-.manage-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -158,60 +148,8 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#contact">Contact</a>
-    <button class="admin-badge" id="adminToggle">⚙️ Edit Portfolio</button>
   </nav>
 </header>
-
-<div id="adminPanel">
-  <h3>Add / Edit Project & Profile</h3>
-  <div class="form-group"><label>Title</label><input type="text" id="pTitle" placeholder="Project Title"></div>
-  <div class="form-group"><label>Category</label>
-    <select id="pCat">
-      <option value="اعمال الريلز المونتاج">اعمال الريلز المونتاج</option>
-      <option value="اعمال موشن جرافيك">اعمال موشن جرافيك</option>
-    </select>
-  </div>
-  <div class="form-group"><label>Video URL (YouTube/Vimeo/Drive)</label><input type="text" id="pVid" placeholder="https://..."></div>
-  <div class="form-group"><label>Thumbnail Image URL (Optional)</label><input type="text" id="pThumb" placeholder="https://..."></div>
-  <button class="btn main" id="saveProj">Save Project</button>
-
-  <hr style="margin:20px 0; border:0; border-top:1px solid var(--line);">
-
-  <div class="form-group">
-    <label>Profile Picture Image URL</label>
-    <input type="text" id="profilePicUrl" placeholder="https://...">
-  </div>
-
-  <div class="controls-grid">
-    <div class="form-group">
-      <label>Zoom Image (Scale: <span id="scaleVal">1.0</span>x)</label>
-      <input type="range" id="imgScale" min="0.8" max="3" step="0.05" value="1.0">
-    </div>
-    <div class="form-group">
-      <label>Position X (<span id="posXVal">0</span>px)</label>
-      <input type="range" id="imgPosX" min="-100" max="100" step="1" value="0">
-    </div>
-    <div class="form-group">
-      <label>Position Y (<span id="posYVal">0</span>px)</label>
-      <input type="range" id="imgPosY" min="-100" max="100" step="1" value="0">
-    </div>
-  </div>
-
-  <button class="btn" id="saveProfilePic" style="margin-bottom:16px;">Save Profile Settings</button>
-
-  <hr style="margin:20px 0; border:0; border-top:1px solid var(--line);">
-
-  <h3>Social Media Links</h3>
-  <div class="form-group"><label>TikTok URL</label><input type="text" id="socialTikTok" placeholder="https://tiktok.com/@..."></div>
-  <div class="form-group"><label>Instagram URL</label><input type="text" id="socialInsta" placeholder="https://instagram.com/..."></div>
-  <div class="form-group"><label>Facebook URL</label><input type="text" id="socialFB" placeholder="https://facebook.com/..."></div>
-  <button class="btn" id="saveSocials">Save Social Links</button>
-
-  <div class="manage-list">
-    <h4 style="margin: 0 0 12px 0;">Existing Projects (Manage / Delete)</h4>
-    <div id="projectManageList"></div>
-  </div>
-</div>
 
 <div id="home">
 <div class="hero">
@@ -263,7 +201,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 <section id="about">
 <div class="about">
 <div class="me-container">
-  <img class="me" id="me" alt="Helmy Fouad" src="https://drive.google.com/thumbnail?id=1q864YUfkt--NtCdfXfwMzA-ku1dEFu-6&sz=w1000">
+  <img class="me" id="me" alt="Helmy Fouad" src="https://drive.google.com/thumbnail?id=1lzsFH8YqnmPW7yqSTAnQ3XSJj5eF754E&sz=w1000">
 </div>
 <div>
 <h2>Hi, I'm Helmy</h2>
@@ -333,7 +271,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
 
 <script>
 var PHONE = "01029069295";
-var DEFAULT_WORKS = [
+var WORKS = [
  {title:"مونتاج ريلز 1", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/16nJ-G46KtpIh5ZmRPzsWocMZygNRxqPr/view?usp=drive_link", thumb:""},
  {title:"مونتاج ريلز 2", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/1ZerYY0im9gvW040BOaq17TXVvTUzYJZq/view?usp=drive_link", thumb:""},
  {title:"مونتاج ريلز 3", cat:"اعمال الريلز المونتاج", video:"https://drive.google.com/file/d/1K2SFhLVU7HGBmvYBXFMhXz-BbGDYnwUG/view?usp=drive_link", thumb:""},
@@ -346,7 +284,6 @@ var DEFAULT_WORKS = [
  {title:"موشن جرافيك 3", cat:"اعمال موشن جرافيك", video:"https://drive.google.com/file/d/17xaN9R8HxjQSkQyDNEMbDBebDhFMNbBf/view?usp=drive_link", thumb:""}
 ];
 
-var WORKS = JSON.parse(localStorage.getItem("helmy_works")) || DEFAULT_WORKS;
 var CATS = {reels:"اعمال الريلز المونتاج", motion:"اعمال موشن جرافيك"};
 var reel = document.getElementById("reel"), chips = document.getElementById("chips"), cur = "All";
 
@@ -358,72 +295,6 @@ function copyPay(text, elementId){
     setTimeout(function(){ el.classList.remove("copied"); }, 2000);
   });
 }
-
-// Social Media Links Logic
-function loadSocials(){
-  var tt = localStorage.getItem("helmy_social_tt") || "";
-  var ig = localStorage.getItem("helmy_social_ig") || "";
-  var fb = localStorage.getItem("helmy_social_fb") || "";
-  
-  document.getElementById("socialTikTok").value = tt;
-  document.getElementById("socialInsta").value = ig;
-  document.getElementById("socialFB").value = fb;
-  
-  var html = "";
-  if(tt) html += '<a class="social-btn" href="'+esc(tt)+'" target="_blank">🎵 TikTok</a>';
-  if(ig) html += '<a class="social-btn" href="'+esc(ig)+'" target="_blank">📸 Instagram</a>';
-  if(fb) html += '<a class="social-btn" href="'+esc(fb)+'" target="_blank">📘 Facebook</a>';
-  
-  document.getElementById("heroSocials").innerHTML = html;
-  document.getElementById("contactSocials").innerHTML = html;
-}
-
-document.getElementById("saveSocials").onclick = function(){
-  localStorage.setItem("helmy_social_tt", document.getElementById("socialTikTok").value);
-  localStorage.setItem("helmy_social_ig", document.getElementById("socialInsta").value);
-  localStorage.setItem("helmy_social_fb", document.getElementById("socialFB").value);
-  loadSocials();
-  alert("Social links updated!");
-};
-
-// Image Adjustment Controls
-var meImg = document.getElementById("me");
-var scaleInput = document.getElementById("imgScale");
-var posXInput = document.getElementById("imgPosX");
-var posYInput = document.getElementById("imgPosY");
-var scaleVal = document.getElementById("scaleVal");
-var posXVal = document.getElementById("posXVal");
-var posYVal = document.getElementById("posYVal");
-
-function updateImgTransform(){
-  var s = scaleInput.value;
-  var x = posXInput.value;
-  var y = posYInput.value;
-  scaleVal.textContent = s;
-  posXVal.textContent = x;
-  posYVal.textContent = y;
-  meImg.style.transform = 'translate(' + x + 'px, ' + y + 'px) scale(' + s + ')';
-}
-
-scaleInput.addEventListener("input", updateImgTransform);
-posXInput.addEventListener("input", updateImgTransform);
-posYInput.addEventListener("input", updateImgTransform);
-
-// Load Saved Profile Settings
-var savedProfilePic = localStorage.getItem("helmy_profile_pic");
-var savedScale = localStorage.getItem("helmy_img_scale") || "1.0";
-var savedX = localStorage.getItem("helmy_img_x") || "0";
-var savedY = localStorage.getItem("helmy_img_y") || "0";
-
-if(savedProfilePic){
-  meImg.src = savedProfilePic;
-  document.getElementById("profilePicUrl").value = savedProfilePic;
-}
-scaleInput.value = savedScale;
-posXInput.value = savedX;
-posYInput.value = savedY;
-updateImgTransform();
-loadSocials();
 
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function slug(c){for(var k in CATS)if(CATS[k]===c)return k;return "motion"}
@@ -454,27 +325,6 @@ function player(w){
 }
 function vid(w){return '<div class="vid"><div class="frame">'+player(w)+'</div><h3>'+esc(w.title)+'</h3>'+(w.video?'':'<span>Video coming soon</span>')+'</div>'}
 
-function renderManageList(){
-  var container = document.getElementById("projectManageList");
-  if(!WORKS.length){
-    container.innerHTML = '<p style="font-size:14px;color:var(--muted);">No projects found.</p>';
-    return;
-  }
-  container.innerHTML = WORKS.map(function(w, index){
-    return '<div class="manage-item"><span><strong>'+esc(w.title)+'</strong> ('+esc(w.cat)+')</span><button class="btn danger" onclick="deleteProject('+index+')">حذف</button></div>';
-  }).join("");
-}
-
-function deleteProject(index){
-  if(confirm("هل أنت تأكد من حذف هذا المشروع؟")){
-    WORKS.splice(index, 1);
-    localStorage.setItem("helmy_works", JSON.stringify(WORKS));
-    draw();
-    renderManageList();
-    route();
-  }
-}
-
 function draw(){
  var list = WORKS.filter(function(w){return cur==="All"||w.cat===cur});
  reel.innerHTML = list.length ? list.map(function(w){
@@ -490,44 +340,6 @@ chips.addEventListener("click",function(e){var b = e.target.closest(".chip"); if
 
 document.getElementById("prev").onclick = function(){ reel.scrollBy({left:-440, behavior:"smooth"}); };
 document.getElementById("next").onclick = function(){ reel.scrollBy({left:440, behavior:"smooth"}); };
-
-document.getElementById("adminToggle").onclick = function(){
-  var p = document.getElementById("adminPanel");
-  p.style.display = p.style.display === "block" ? "none" : "block";
-  if(p.style.display === "block") renderManageList();
-};
-
-document.getElementById("saveProj").onclick = function(){
-  var t = document.getElementById("pTitle").value;
-  var c = document.getElementById("pCat").value;
-  var v = document.getElementById("pVid").value;
-  var th = document.getElementById("pThumb").value;
-  if(!t) return alert("Please enter a title");
-  WORKS.unshift({title:t, cat:c, video:v, thumb:th});
-  localStorage.setItem("helmy_works", JSON.stringify(WORKS));
-  draw();
-  renderManageList();
-  document.getElementById("adminPanel").style.display = "none";
-  document.getElementById("pTitle").value = "";
-  document.getElementById("pVid").value = "";
-  document.getElementById("pThumb").value = "";
-};
-
-document.getElementById("saveProfilePic").onclick = function(){
-  var url = document.getElementById("profilePicUrl").value;
-  if(url){
-    var m = url.match(/drive\.google\.com\/file\/d\/([\w-]+)/);
-    if(m && m[1]) {
-      url = 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w1000';
-    }
-    localStorage.setItem("helmy_profile_pic", url);
-    meImg.src = url;
-  }
-  localStorage.setItem("helmy_img_scale", scaleInput.value);
-  localStorage.setItem("helmy_img_x", posXInput.value);
-  localStorage.setItem("helmy_img_y", posYInput.value);
-  alert("Profile image settings saved successfully!");
-};
 
 function route(){
  var m = location.hash.match(/^#v=(\w+)$/), home = document.getElementById("home"), g = document.getElementById("gallery");
