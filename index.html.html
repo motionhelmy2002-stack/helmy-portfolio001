@@ -344,8 +344,8 @@ var DEFAULT_WORKS = [
 ];
 
 var WORKS = JSON.parse(localStorage.getItem("helmy_works")) || DEFAULT_WORKS;
-var CATS={reels:"اعمال الريلز المونتاج",motion:"اعمال موشن جرافيك"};
-var reel=document.getElementById("reel"),chips=document.getElementById("chips"),cur="All";
+var CATS = {reels:"اعمال الريلز المونتاج", motion:"اعمال موشن جرافيك"};
+var reel = document.getElementById("reel"), chips = document.getElementById("chips"), cur = "All";
 
 // Copy Payment Details Function
 function copyPay(text, elementId){
@@ -442,11 +442,11 @@ function renderThumb(w){
 }
 
 function player(w){
- var u=w.video||"",m,a=' title="'+esc(w.title)+'" allow="fullscreen" allowfullscreen loading="lazy"></iframe>';
- if(!u)return renderThumb(w)+'</div>';
- if(m=u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/))return '<iframe src="https://www.youtube.com/embed/'+m[1]+'"'+a;
- if(m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/))return '<iframe src="https://player.vimeo.com/video/'+m[1]+'"'+a;
- if(m=u.match(/drive\.google\.com\/file\/d\/([\w-]+)/))return '<iframe src="https://drive.google.com/file/d/'+m[1]+'/preview"'+a;
+ var u = w.video || "", m, a = ' title="'+esc(w.title)+'" allow="fullscreen" allowfullscreen loading="lazy"></iframe>';
+ if(!u) return renderThumb(w)+'</div>';
+ if(m = u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/)) return '<iframe src="https://www.youtube.com/embed/'+m[1]+'"'+a;
+ if(m = u.match(/vimeo\.com\/(?:video\/)?(\d+)/)) return '<iframe src="https://player.vimeo.com/video/'+m[1]+'"'+a;
+ if(m = u.match(/drive\.google\.com\/file\/d\/([\w-]+)/)) return '<iframe src="https://drive.google.com/file/d/'+m[1]+'/preview"'+a;
  return '<video controls playsinline preload="metadata" src="'+esc(u)+'"></video>';
 }
 function vid(w){return '<div class="vid"><div class="frame">'+player(w)+'</div><h3>'+esc(w.title)+'</h3>'+(w.video?'':'<span>Video coming soon</span>')+'</div>'}
@@ -473,44 +473,44 @@ function deleteProject(index){
 }
 
 function draw(){
- var list=WORKS.filter(function(w){return cur==="All"||w.cat===cur});
- reel.innerHTML=list.length?list.map(function(w){
+ var list = WORKS.filter(function(w){return cur==="All"||w.cat===cur});
+ reel.innerHTML = list.length ? list.map(function(w){
   return '<a class="work" href="#v='+slug(w.cat)+'">'+renderThumb(w)+(w.video?'<div class="play" aria-hidden="true">&#9654;</div>':'')+'</div><h3>'+esc(w.title)+'</h3><span>'+esc(w.cat)+'</span></a>';
- }).join(""):'<p class="empty">No projects in this category yet.</p>';
- reel.scrollLeft=0;
+ }).join("") : '<p class="empty">No projects in this category yet.</p>';
+ reel.scrollLeft = 0;
 }
 
-var cats=["All"];for(var k in CATS)cats.push(CATS[k]);
-chips.innerHTML=cats.map(function(c){return '<button class="chip" aria-pressed="'+(c===cur)+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'}).join("");
-chips.addEventListener("click",function(e){var b=e.target.closest(".chip");if(!b)return;cur=b.getAttribute("data-c");
- [].forEach.call(chips.children,function(x){x.setAttribute("aria-pressed",x===b)});draw()});
+var cats = ["All"]; for(var k in CATS) cats.push(CATS[k]);
+chips.innerHTML = cats.map(function(c){return '<button class="chip" aria-pressed="'+(c===cur)+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'}).join("");
+chips.addEventListener("click",function(e){var b = e.target.closest(".chip"); if(!b) return; cur = b.getAttribute("data-c");
+ [].forEach.call(chips.children,function(x){x.setAttribute("aria-pressed",x===b)}); draw()});
 
-document.getElementById("prev").onclick=function({reel.scrollBy({left:-440,behavior:"smooth"})};
-document.getElementById("next").onclick=function(){reel.scrollBy({left:440,behavior:"smooth"})};
+document.getElementById("prev").onclick = function(){ reel.scrollBy({left:-440, behavior:"smooth"}); };
+document.getElementById("next").onclick = function(){ reel.scrollBy({left:440, behavior:"smooth"}); };
 
-document.getElementById("adminToggle").onclick=function(){
-  var p=document.getElementById("adminPanel");
-  p.style.display=p.style.display==="block"?"none":"block";
-  if(p.style.display===block) renderManageList();
+document.getElementById("adminToggle").onclick = function(){
+  var p = document.getElementById("adminPanel");
+  p.style.display = p.style.display === "block" ? "none" : "block";
+  if(p.style.display === "block") renderManageList();
 };
 
-document.getElementById("saveProj").onclick=function(){
-  var t=document.getElementById("pTitle").value;
-  var c=document.getElementById("pCat").value;
-  var v=document.getElementById("pVid").value;
-  var th=document.getElementById("pThumb").value;
-  if(!t)return alert("Please enter a title");
-  WORKS.unshift({title:t,cat:c,video:v,thumb:th});
-  localStorage.setItem("helmy_works",JSON.stringify(WORKS));
+document.getElementById("saveProj").onclick = function(){
+  var t = document.getElementById("pTitle").value;
+  var c = document.getElementById("pCat").value;
+  var v = document.getElementById("pVid").value;
+  var th = document.getElementById("pThumb").value;
+  if(!t) return alert("Please enter a title");
+  WORKS.unshift({title:t, cat:c, video:v, thumb:th});
+  localStorage.setItem("helmy_works", JSON.stringify(WORKS));
   draw();
   renderManageList();
-  document.getElementById("adminPanel").style.display="none";
-  document.getElementById("pTitle").value="";
-  document.getElementById("pVid").value="";
-  document.getElementById("pThumb").value="";
+  document.getElementById("adminPanel").style.display = "none";
+  document.getElementById("pTitle").value = "";
+  document.getElementById("pVid").value = "";
+  document.getElementById("pThumb").value = "";
 };
 
-document.getElementById("saveProfilePic").onclick=function(){
+document.getElementById("saveProfilePic").onclick = function(){
   var url = document.getElementById("profilePicUrl").value;
   if(url){
     var m = url.match(/drive\.google\.com\/file\/d\/([\w-]+)/);
@@ -527,18 +527,18 @@ document.getElementById("saveProfilePic").onclick=function(){
 };
 
 function route(){
- var m=location.hash.match(/^#v=(\w+)$/),home=document.getElementById("home"),g=document.getElementById("gallery");
- if(m&&CATS[m[1]]){
-  var cat=CATS[m[1]],list=WORKS.filter(function(w){return w.cat===cat});
-  document.getElementById("gtitle").textContent=cat;
-  document.getElementById("vids").innerHTML=list.length?list.map(vid).join(""):'<p class="empty">No videos in this category yet.</p>';
-  home.hidden=true;g.hidden=false;window.scrollTo(0,0);
+ var m = location.hash.match(/^#v=(\w+)$/), home = document.getElementById("home"), g = document.getElementById("gallery");
+ if(m && CATS[m[1]]){
+  var cat = CATS[m[1]], list = WORKS.filter(function(w){return w.cat===cat});
+  document.getElementById("gtitle").textContent = cat;
+  document.getElementById("vids").innerHTML = list.length ? list.map(vid).join("") : '<p class="empty">No videos in this category yet.</p>';
+  home.hidden = true; g.hidden = false; window.scrollTo(0,0);
  }else{
-  g.hidden=true;home.hidden=false;
-  try{var el=location.hash.length>1&&document.querySelector(location.hash);if(el)el.scrollIntoView()}catch(x){}
+  g.hidden = true; home.hidden = false;
+  try{ var el = location.hash.length > 1 && document.querySelector(location.hash); if(el) el.scrollIntoView(); }catch(x){}
  }
 }
-window.addEventListener("hashchange",route);
+window.addEventListener("hashchange", route);
 
 draw();
 route();
